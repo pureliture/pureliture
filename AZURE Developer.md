@@ -493,12 +493,6 @@ Azure Active Directory의 관리 ID를 통해 앱이 Azure Key Vault와 같은 �
 - Azure Active Directory (AAD)
 - Managed Service Identity (MSI)
 
-To enhance the readability and structure of your document for Notion, I will transform each question into a bilingual format with foldable answers, remove meaningless words, and identify key terms. Here is how you can format it:
-
----
-
-## Microsoft AZ-204 Exam - Page 5 Questions
-
 ### Question 11
 
 #### English Version
@@ -683,6 +677,8 @@ Active Directory
 - Azure SQL database
 - Azure AD authentication
 - Active Directory integrated authentication
+
+</details>
 
 ---
 
