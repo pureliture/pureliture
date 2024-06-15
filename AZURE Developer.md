@@ -2580,5 +2580,688 @@ B: 공유 및 무료 모드는 표준 모드의 확장 유연성을 제공하지
 - Service tiers
 
 
+### Question 14
+
+#### English Version
+A company is developing a Java web app. The web app code is hosted in a GitHub repository located at https://github.com/Contoso/webapp. The web app must be evaluated before it is moved to production. You must deploy the initial code release to a deployment slot named staging. You need to create the web app and deploy the code.
+
+How should you complete the commands? To answer, select the appropriate options in the answer area.
+
+NOTE: Each correct selection is worth one point.
+
+```markdown
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**
+
+Box 1: group
+```sh
+# Create a resource group.
+az group create --location westeurope --name myResourceGroup
+```
+
+Box 2: appservice plan
+```sh
+# Create an App Service plan in STANDARD tier (minimum required by deployment slots).
+az appservice plan create --name $webappname --resource-group myResourceGroup --sku S1
+```
+
+Box 3: webapp
+```sh
+# Create a web app.
+az webapp create --name $webappname --resource-group myResourceGroup --plan $webappname
+```
+
+Box 4: webapp deployment slot
+```sh
+# Create a deployment slot with the name "staging".
+az webapp deployment slot create --name $webappname --resource-group myResourceGroup --slot staging
+```
+
+Box 5: webapp deployment source
+```sh
+# Deploy sample code to "staging" slot from GitHub.
+az webapp deployment source config --name $webappname --resource-group myResourceGroup --slot staging --repo-url $gitrepo --branch master --manual-integration
+```
+Reference: https://docs.microsoft.com/en-us/azure/app-service/scripts/cli-deploy-staging-environment
+
+</details>
+```
+
+#### Korean Version
+회사는 Java 웹 앱을 개발 중입니다. 웹 앱 코드는 https://github.com/Contoso/webapp에 위치한 GitHub 리포지토리에 호스팅됩니다. 웹 앱은 프로덕션으로 이동하기 전에 평가되어야 합니다. 초기 코드 릴리스를 staging이라는 배포 슬롯에 배포해야 합니다. 웹 앱을 만들고 코드를 배포해야 합니다.
+
+명령을 어떻게 완료해야 합니까? 답변하려면 답변 영역에서 적절한 옵션을 선택하십시오.
+
+참고: 각 올바른 선택은 1점입니다.
+
+```markdown
+<details>
+<summary>정답</summary>
+
+**정답:**
+
+Box 1: group
+```sh
+# 리소스 그룹을 만듭니다.
+az group create --location westeurope --name myResourceGroup
+```
+
+Box 2: appservice plan
+```sh
+# 표준 계층(STANDARD)에서 App Service 계획을 만듭니다(배포 슬롯에 필요한 최소 항목).
+az appservice plan create --name $webappname --resource-group myResourceGroup --sku S1
+```
+
+Box 3: webapp
+```sh
+# 웹 앱을 만듭니다.
+az webapp create --name $webappname --resource-group myResourceGroup --plan $webappname
+```
+
+Box 4: webapp deployment slot
+```sh
+# "staging"이라는 배포 슬롯을 만듭니다.
+az webapp deployment slot create --name $webappname --resource-group myResourceGroup --slot staging
+```
+
+Box 5: webapp deployment source
+```sh
+# GitHub에서 "staging" 슬롯으로 샘플 코드를 배포합니다.
+az webapp deployment source config --name $webappname --resource-group myResourceGroup --slot staging --repo-url $gitrepo --branch master --manual-integration
+```
+참조: https://docs.microsoft.com/en-us/azure/app-service/scripts/cli-deploy-staging-environment
+
+</details>
+```
+
+**Key Terms:**
+- Azure App Service
+- Deployment slots
+- CLI commands
+- GitHub integration
+
+---
+
+### Question 15
+
+#### English Version
+You have a web service that is used to pay for food deliveries. The web service uses Azure Cosmos DB as the data store. You plan to add a new feature that allows users to set a tip amount. The new feature requires that a property named `tip` on the document in Cosmos DB must be present and contain a numeric value. There are many existing websites and mobile apps that use the web service that will not be updated to set the `tip` property for some time.
+
+How should you complete the trigger?
+
+NOTE: Each correct selection is worth one point.
+
+![Cosmos DB Trigger](https://www.examtopics.com/assets/media/exam-media/08923/0001100002.jpg)
+
+```markdown
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**
+
+Configure the trigger as follows:
+```json
+{
+  "triggers": {
+    "tip": {
+      "type": "number",
+      "required": true
+    }
+  }
+}
+```
+Reference: https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed-design-patterns
+
+</details>
+```
+
+#### Korean Version
+음식 배달 비용을 지불하는 데 사용되는 웹 서비스가 있습니다. 이 웹 서비스는 데이터 저장소로 Azure Cosmos DB를 사용합니다. 사용자가 팁 금액을 설정할 수 있는 새 기능을 추가할 계획입니다. 이 새 기능은 Cosmos DB의 문서에 `tip`이라는 속성이 존재하고 숫자 값을 포함해야 합니다. 웹 서비스를 사용하는 많은 기존 웹사이트 및 모바일 앱은 `tip` 속성을 설정하기 위해 업데이트되지 않을 것입니다.
+
+트리거를 어떻게 완료해야 합니까?
+
+참고: 각 올바른 선택은 1점입니다.
+
+![Cosmos DB Trigger](https://www.examtopics.com/assets/media/exam-media/08923/0001100002.jpg)
+
+```markdown
+<details>
+<summary>정답</summary>
+
+**정답:**
+
+트리거를 다음과 같이 구성하십시오:
+```json
+{
+  "triggers": {
+    "tip": {
+      "type": "number",
+      "required": true
+    }
+  }
+}
+```
+참조: https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed-design-patterns
+
+</details>
+```
+
+**Key Terms:**
+- Azure Cosmos DB
+- Triggers
+- JSON configuration
+
+---
+
+### Question 16
+
+#### English Version
+You develop an HTTP triggered Azure Function app to process Azure Storage blob data. The app continues to time out after four minutes. The app must process the blob data. You need to ensure the app does not time out and processes the blob data.
+
+Solution: Use the Durable Function async pattern to process the blob data.
+
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+```markdown
+<details>
+<summary>Answer</summary>
+
+**Correct Answer: B**
+
+Instead, pass the HTTP trigger payload into an Azure Service Bus queue to be processed by a queue trigger function and return an immediate HTTP success response.
+
+Note: Large, long-running functions can cause unexpected timeout issues. General best practices include: Whenever possible, refactor large functions into smaller function sets that work together and return responses fast. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit; it's common for webhooks to require an immediate response. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This approach lets you defer the actual work and return an immediate response.
+
+Reference: https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices
+
+</details>
+```
+
+#### Korean Version
+HTTP 트리거된 Azure Function 앱을 개발하여 Azure Storage blob 데이터를 처리합니다. 앱이 계속 4분 후에 시간 초과됩니다. 앱은 blob 데이터를 처리해야 합니다. 앱이 시간 초과되지 않고 blob 데이터를 처리하도록 해야 합니다.
+
+해결책: Durable Function 비동기 패턴을 사용하여 blob 데이터를 처리합니다.
+
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+```markdown
+<details>
+<summary>정답</summary>
+
+**정답: B**
+
+대신, HTTP 트리거 페이로드를 Azure Service Bus 큐에 전달하여 큐 트리거 함수로 처리하고 즉시 HTTP 성공 응답을 반환합니다.
+
+참고: 큰 규모의 장기 실행 함수는 예기치 않은 시간 초과 문제를 일으킬 수 있습니다. 일반적인 모범 사례에는 다음이 포함됩니다: 가능한 경우 큰 함수를 더 작은 함수 세트로 리팩토링하여 빠르게 응답합니다. 예를 들어, 웹훅 또는 HTTP 트리거 함수는 일정 시간 내에 승인 응답이 필요할 수 있습니다. HTTP 트리거 페이로드를 큐에 전달하여 큐 트리거 함수로 처리할 수 있습니다. 이 접근 방식은 실제 작업을 연기하고 즉시 응답을 반환할 수 있도록 합니다.
+
+참조: https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices
+
+</details>
+```
+
+**Key Terms:**
+- Azure Functions
+- Durable Functions
+- Azure Service Bus
+- Timeout issues
+
+---
+
+### Question 17
+
+#### English Version
+You develop an HTTP triggered Azure Function app to process Azure Storage blob data. The app continues to time out after four minutes. The app must process the blob data. You need to ensure the app does not time out and processes the blob data.
+
+Solution: Pass the HTTP trigger payload into an Azure Service Bus queue to be processed by a queue trigger function and return an immediate HTTP success response.
+
+Does the solution meet the goal?
+- A. Yes
+-
+
+ B. No
+
+```markdown
+<details>
+<summary>Answer</summary>
+
+**Correct Answer: A**
+
+Large, long-running functions can cause unexpected timeout issues. General best practices include: Whenever possible, refactor large functions into smaller function sets that work together and return responses fast. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit; it's common for webhooks to require an immediate response. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This approach lets you defer the actual work and return an immediate response.
+
+Reference: https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices
+
+</details>
+```
+
+#### Korean Version
+HTTP 트리거된 Azure Function 앱을 개발하여 Azure Storage blob 데이터를 처리합니다. 앱이 계속 4분 후에 시간 초과됩니다. 앱은 blob 데이터를 처리해야 합니다. 앱이 시간 초과되지 않고 blob 데이터를 처리하도록 해야 합니다.
+
+해결책: HTTP 트리거 페이로드를 Azure Service Bus 큐에 전달하여 큐 트리거 함수로 처리하고 즉시 HTTP 성공 응답을 반환합니다.
+
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+```markdown
+<details>
+<summary>정답</summary>
+
+**정답: A**
+
+큰 규모의 장기 실행 함수는 예기치 않은 시간 초과 문제를 일으킬 수 있습니다. 일반적인 모범 사례에는 다음이 포함됩니다: 가능한 경우 큰 함수를 더 작은 함수 세트로 리팩토링하여 빠르게 응답합니다. 예를 들어, 웹훅 또는 HTTP 트리거 함수는 일정 시간 내에 승인 응답이 필요할 수 있습니다. HTTP 트리거 페이로드를 큐에 전달하여 큐 트리거 함수로 처리할 수 있습니다. 이 접근 방식은 실제 작업을 연기하고 즉시 응답을 반환할 수 있도록 합니다.
+
+참조: https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices
+
+</details>
+```
+
+**Key Terms:**
+- Azure Functions
+- HTTP trigger
+- Azure Service Bus
+- Timeout issues
+
+---
+
+### Question 18
+
+#### English Version
+You develop an HTTP triggered Azure Function app to process Azure Storage blob data. The app continues to time out after four minutes. The app must process the blob data. You need to ensure the app does not time out and processes the blob data.
+
+Solution: Configure the app to use an App Service hosting plan and enable the Always On setting.
+
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+```markdown
+<details>
+<summary>Answer</summary>
+
+**Correct Answer: B**
+
+Instead, pass the HTTP trigger payload into an Azure Service Bus queue to be processed by a queue trigger function and return an immediate HTTP success response.
+
+Note: Large, long-running functions can cause unexpected timeout issues. General best practices include: Whenever possible, refactor large functions into smaller function sets that work together and return responses fast. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit; it's common for webhooks to require an immediate response. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This approach lets you defer the actual work and return an immediate response.
+
+Reference: https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices
+
+</details>
+```
+
+#### Korean Version
+HTTP 트리거된 Azure Function 앱을 개발하여 Azure Storage blob 데이터를 처리합니다. 앱이 계속 4분 후에 시간 초과됩니다. 앱은 blob 데이터를 처리해야 합니다. 앱이 시간 초과되지 않고 blob 데이터를 처리하도록 해야 합니다.
+
+해결책: 앱을 App Service 호스팅 계획을 사용하도록 구성하고 Always On 설정을 활성화합니다.
+
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+```markdown
+<details>
+<summary>정답</summary>
+
+**정답: B**
+
+대신, HTTP 트리거 페이로드를 Azure Service Bus 큐에 전달하여 큐 트리거 함수로 처리하고 즉시 HTTP 성공 응답을 반환합니다.
+
+참고: 큰 규모의 장기 실행 함수는 예기치 않은 시간 초과 문제를 일으킬 수 있습니다. 일반적인 모범 사례에는 다음이 포함됩니다: 가능한 경우 큰 함수를 더 작은 함수 세트로 리팩토링하여 빠르게 응답합니다. 예를 들어, 웹훅 또는 HTTP 트리거 함수는 일정 시간 내에 승인 응답이 필요할 수 있습니다. HTTP 트리거 페이로드를 큐에 전달하여 큐 트리거 함수로 처리할 수 있습니다. 이 접근 방식은 실제 작업을 연기하고 즉시 응답을 반환할 수 있도록 합니다.
+
+참조: https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices
+
+</details>
+```
+
+**Key Terms:**
+- Azure Functions
+- App Service hosting plan
+- Always On setting
+- Timeout issues
+
+---
+
+### Question 19
+
+#### English Version
+You develop a software as a service (SaaS) offering to manage photographs. Users upload photos to a web service which then stores the photos in Azure Storage Blob storage. The storage account type is General-purpose V2. When photos are uploaded, they must be processed to produce and save a mobile-friendly version of the image. The process to produce a mobile-friendly version of the image must start in less than one minute. You need to design the process that starts the photo processing.
+
+Solution: Move photo processing to an Azure Function triggered from the blob upload.
+
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+```markdown
+<details>
+<summary>Answer</summary>
+
+**Correct Answer: A**
+
+Azure Storage events allow applications to react to events. Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Events are pushed using Azure Event Grid to subscribers such as Azure Functions, Azure Logic Apps, or even to your own HTTP listener.
+
+Note: Only storage accounts of kind StorageV2 (general purpose v2) and BlobStorage support event integration. Storage (general purpose v1) does not support integration with Event Grid.
+
+Reference: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview
+
+</details>
+```
+
+#### Korean Version
+사진을 관리하기 위한 소프트웨어 서비스(SaaS) 제공을 개발합니다. 사용자는 사진을 웹 서비스에 업로드하고, 웹 서비스는 사진을 Azure Storage Blob 스토리지에 저장합니다. 스토리지 계정 유형은 General-purpose V2입니다. 사진이 업로드되면 모바일 친화적인 버전의 이미지를 생성하고 저장해야 합니다. 모바일 친화적인 버전의 이미지를 생성하는 프로세스는 1분 이내에 시작해야 합니다. 사진 처리를 시작하는 프로세스를 설계해야 합니다.
+
+해결책: Blob 업로드에서 트리거된 Azure Function으로 사진 처리를 이동합니다.
+
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+```markdown
+<details>
+<summary>정답</summary>
+
+**정답: A**
+
+Azure Storage 이벤트를 사용하면 애플리케이션이 이벤트에 반응할 수 있습니다. 일반적인 Blob 스토리지 이벤트 시나리오에는 이미지 또는 비디오 처리, 검색 인덱싱 또는 파일 지향 워크플로가 포함됩니다. 이벤트는 Azure Event Grid를 사용하여 Azure Functions, Azure Logic Apps 또는 자체 HTTP 수신자와 같은 구독자에게 푸시됩니다.
+
+참고: StorageV2(일반 목적 v2) 및 BlobStorage 유형의 스토리지 계정만 이벤트 통합을 지원합니다. Storage(일반 목적 v1)는 Event Grid와의 통합을 지원하지 않습니다.
+
+참조: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview
+
+</details>
+```
+
+**Key Terms:**
+- SaaS
+- Azure Storage Blob
+- Azure Functions
+- Event Grid
+
+---
+
+### Question 20
+
+#### English Version
+You are developing an application that uses Azure Blob storage. The application must read the transaction logs of all the changes that occur to the blobs and the blob metadata in the storage account for auditing purposes. The changes must be in the order in which they occurred, include only create, update, delete, and copy operations, and be retained for compliance reasons. You need to process the transaction logs asynchronously.
+
+What should you do?
+- A. Process all Azure Blob storage events by using Azure Event Grid with a subscriber Azure Function app.
+- B. Enable the change feed on the storage account and process all changes for available events.
+- C. Process all Azure Storage Analytics logs for successful blob events.
+- D. Use the Azure Monitor HTTP Data Collector API and scan the request body for successful blob events.
+
+```markdown
+<details>
+<summary>Answer</summary>
+
+**Correct Answer: B**
+
+Change feed support in Azure Blob Storage: The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides ordered, guaranteed, durable, immutable, read-only log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
+
+Reference: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-change-feed
+
+</details>
+```
+
+#### Korean Version
+Azure Blob 스토
+
+리지를 사용하는 애플리케이션을 개발 중입니다. 이 애플리케이션은 감사 목적으로 스토리지 계정에서 발생하는 모든 변경 사항과 blob 메타데이터의 트랜잭션 로그를 읽어야 합니다. 변경 사항은 발생한 순서대로, 생성, 업데이트, 삭제 및 복사 작업만 포함하고, 준수 이유로 보관되어야 합니다. 트랜잭션 로그를 비동기적으로 처리해야 합니다.
+
+어떻게 해야 합니까?
+- A. Azure Event Grid를 사용하여 모든 Azure Blob 스토리지 이벤트를 구독자 Azure Function 앱으로 처리합니다.
+- B. 스토리지 계정에서 변경 피드를 활성화하고 사용 가능한 이벤트에 대한 모든 변경 사항을 처리합니다.
+- C. 성공적인 blob 이벤트에 대한 모든 Azure Storage Analytics 로그를 처리합니다.
+- D. Azure Monitor HTTP 데이터 수집기 API를 사용하고 성공적인 blob 이벤트에 대한 요청 본문을 스캔합니다.
+
+```markdown
+<details>
+<summary>정답</summary>
+
+**정답: B**
+
+Azure Blob Storage의 변경 피드 지원: 변경 피드의 목적은 스토리지 계정의 blob과 blob 메타데이터에 발생한 모든 변경 사항의 트랜잭션 로그를 제공하는 것입니다. 변경 피드는 이러한 변경 사항의 순서가 지정된, 보장된, 내구성 있는, 변경 불가능한, 읽기 전용 로그를 제공합니다. 클라이언트 애플리케이션은 언제든지 스트리밍 또는 배치 모드에서 이러한 로그를 읽을 수 있습니다. 변경 피드는 저렴한 비용으로 Blob Storage 계정에서 발생하는 변경 이벤트를 처리하는 효율적이고 확장 가능한 솔루션을 구축할 수 있도록 합니다.
+
+참조: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-change-feed
+
+</details>
+```
+
+**Key Terms:**
+- Azure Blob Storage
+- Change feed
+- Transaction logs
+- Auditing
+
+---
+
+### Question 21
+
+#### English Version
+You plan to create a Docker image that runs an ASP.NET Core application named ContosoApp. You have a setup script named `setupScript.ps1` and a series of application files including `ContosoApp.dll`. You need to create a Dockerfile document that meets the following requirements:
+- Call `setupScripts.ps1` when the container is built.
+- Run `ContosoApp.dll` when the container starts.
+
+The Dockerfile document must be created in the same folder where `ContosoApp.dll` and `setupScript.ps1` are stored.
+
+Which five commands should you use to develop the solution? To answer, move the appropriate commands from the list of commands to the answer area and arrange them in the correct order.
+
+![Dockerfile Commands](https://www.examtopics.com/assets/media/exam-media/08923/0001500001.jpg)
+
+```markdown
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**
+
+Box 1: FROM microsoft/aspnetcore-build:latest
+
+Box 2: WORKDIR /apps/ContosoApp
+
+Box 3: COPY ./ .
+
+Box 4: RUN powershell ./setupScript.ps1
+
+Box 5: CMD ["dotnet", "ContosoApp.dll"]
+
+</details>
+```
+
+#### Korean Version
+ASP.NET Core 애플리케이션인 ContosoApp을 실행하는 Docker 이미지를 만들 계획입니다. `setupScript.ps1`이라는 설정 스크립트와 `ContosoApp.dll`을 포함한 일련의 애플리케이션 파일이 있습니다. 다음 요구 사항을 충족하는 Dockerfile 문서를 만들어야 합니다:
+- 컨테이너가 빌드될 때 `setupScripts.ps1`을 호출합니다.
+- 컨테이너가 시작될 때 `ContosoApp.dll`을 실행합니다.
+
+Dockerfile 문서는 `ContosoApp.dll` 및 `setupScript.ps1`이 저장된 동일한 폴더에 생성되어야 합니다.
+
+솔루션을 개발하기 위해 어떤 다섯 가지 명령을 사용해야 합니까? 답변하려면 명령 목록에서 적절한 명령을 답변 영역으로 이동하여 올바른 순서로 배열하십시오.
+
+![Dockerfile Commands](https://www.examtopics.com/assets/media/exam-media/08923/0001500001.jpg)
+
+```markdown
+<details>
+<summary>정답</summary>
+
+**정답:**
+
+Box 1: FROM microsoft/aspnetcore-build:latest
+
+Box 2: WORKDIR /apps/ContosoApp
+
+Box 3: COPY ./ .
+
+Box 4: RUN powershell ./setupScript.ps1
+
+Box 5: CMD ["dotnet", "ContosoApp.dll"]
+
+</details>
+```
+
+**Key Terms:**
+- Docker
+- Dockerfile
+- ASP.NET Core
+- Containerization
+
+---
+
+### Question 22
+
+#### English Version
+You are developing an Azure Function App that processes images that are uploaded to an Azure Blob container. Images must be processed as quickly as possible after they are uploaded, and the solution must minimize latency. You create code to process images when the Function App is triggered. You need to configure the Function App.
+
+What should you do?
+- A. Use an App Service plan. Configure the Function App to use an Azure Blob Storage input trigger.
+- B. Use a Consumption plan. Configure the Function App to use an Azure Blob Storage trigger.
+- C. Use a Consumption plan. Configure the Function App to use a Timer trigger.
+- D. Use an App Service plan. Configure the Function App to use an Azure Blob Storage trigger.
+- E. Use a Consumption plan. Configure the Function App to use an Azure Blob Storage input trigger.
+
+```markdown
+<details>
+<summary>Answer</summary>
+
+**Correct Answer: B**
+
+The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as input to the function. The Consumption plan limits a function app on one virtual machine (VM) to 1.5 GB of memory.
+
+Reference: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger
+
+</details>
+```
+
+#### Korean Version
+Azure Blob 컨테이너에 업로드된 이미지를 처리하는 Azure Function 앱을 개발 중입니다. 이미지는 업로드된 후 가능한 한 빨리 처리되어야 하며, 솔루션은 지연 시간을 최소화해야 합니다. Function 앱이 트리거될 때 이미지를 처리하는 코드를 작성합니다. Function 앱을 구성해야 합니다.
+
+어떻게 해야 합니까?
+- A. App Service 계획을 사용합니다. Function 앱이 Azure Blob Storage 입력 트리거를 사용하도록 구성합니다.
+- B. 소비 계획을 사용합니다. Function 앱이 Azure Blob Storage 트리거를 사용하도록 구성합니다.
+- C. 소비 계획을 사용합니다. Function 앱이 타이머 트리거를 사용하도록 구성합니다.
+- D. App Service 계획을 사용합니다. Function 앱이 Azure Blob Storage 트리거를 사용하도록 구성합니다.
+- E. 소비 계획을 사용합니다. Function 앱이 Azure Blob Storage 입력 트리거를 사용하도록 구성합니다.
+
+```markdown
+<details>
+<summary>정답</summary>
+
+**정답: B**
+
+Blob 스토리지 트리거는 새 또는 업데이트된 blob이 감지될 때 함수를 시작합니다. blob 내용은 함수에 입력으로 제공됩니다. 소비 계획은 하나의 가상 머신(VM)에서 1.5 GB의 메모리로 함수 앱을 제한합니다.
+
+참조: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger
+
+</details>
+```
+
+**Key Terms:**
+- Azure Functions
+- Blob Storage trigger
+- Consumption plan
+- Latency
+
+---
+
+### Question 23
+
+#### English Version
+You are configuring a new development environment for a Java application. The environment requires a Virtual Machine Scale Set (VMSS), several storage accounts, and networking components. The VMSS must not be created until the storage accounts have been successfully created and an associated load balancer and virtual network is configured.
+
+How should you complete the Azure Resource Manager template? To answer, select the appropriate options in the answer area.
+
+NOTE: Each correct selection is worth one point.
+
+![VMSS Configuration](https://www.examtopics.com/assets/media/exam-media/08923/0001600001.jpg)
+
+```markdown
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**
+
+Box 1: copyIndex
+Notice that the name of each resource includes the copyIndex() function, which returns the current iteration in the loop. copyIndex() is zero-based.
+
+Box 2: copy
+By adding the copy element to the resources section of your template, you can dynamically set the number of resources to deploy.
+
+Box 3: dependsOn
+Example:
+```json
+"type": "Microsoft.Compute/virtualMachineScaleSets",
+"apiVersion": "2020-06-01",
+"name": "[variables('namingInfix')]",
+"location": "[parameters('location')]",
+"sku": {
+    "name": "[parameters('vmSku')]",
+    "tier": "Standard",
+    "capacity": "[parameters('instanceCount')]"
+},
+"dependsOn": [
+    "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
+    "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
+]
+```
+Reference: https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/copy-resources https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/quick-create-template-windows
+
+</details>
+```
+
+#### Korean Version
+Java 애플리케이션을 위한 새로운 개발 환경을 구성 중입니다. 환경에는
+
+ 가상 머신 확장 집합(VMSS), 여러 스토리지 계정 및 네트워크 구성 요소가 필요합니다. 스토리지 계정이 성공적으로 생성되고 관련된 로드 밸런서 및 가상 네트워크가 구성될 때까지 VMSS가 생성되지 않아야 합니다.
+
+Azure Resource Manager 템플릿을 어떻게 완료해야 합니까? 답변하려면 답변 영역에서 적절한 옵션을 선택하십시오.
+
+참고: 각 올바른 선택은 1점입니다.
+
+![VMSS Configuration](https://www.examtopics.com/assets/media/exam-media/08923/0001600001.jpg)
+
+```markdown
+<details>
+<summary>정답</summary>
+
+**정답:**
+
+Box 1: copyIndex
+각 리소스의 이름에는 루프의 현재 반복을 반환하는 copyIndex() 함수가 포함됩니다. copyIndex()는 0부터 시작합니다.
+
+Box 2: copy
+템플릿의 리소스 섹션에 copy 요소를 추가하면 배포할 리소스 수를 동적으로 설정할 수 있습니다.
+
+Box 3: dependsOn
+예:
+```json
+"type": "Microsoft.Compute/virtualMachineScaleSets",
+"apiVersion": "2020-06-01",
+"name": "[variables('namingInfix')]",
+"location": "[parameters('location')]",
+"sku": {
+    "name": "[parameters('vmSku')]",
+    "tier": "Standard",
+    "capacity": "[parameters('instanceCount')]"
+},
+"dependsOn": [
+    "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
+    "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
+]
+```
+참조: https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/copy-resources https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/quick-create-template-windows
+
+</details>
+```
+
+**Key Terms:**
+- Azure Resource Manager
+- Virtual Machine Scale Sets (VMSS)
+- CopyIndex
+- DependsOn
+
 
 </details>
