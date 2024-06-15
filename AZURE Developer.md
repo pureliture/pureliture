@@ -493,7 +493,1514 @@ Azure Active Directory의 관리 ID를 통해 앱이 Azure Key Vault와 같은 �
 - Azure Active Directory (AAD)
 - Managed Service Identity (MSI)
 
+To enhance the readability and structure of your document for Notion, I will transform each question into a bilingual format with foldable answers, remove meaningless words, and identify key terms. Here is how you can format it:
+
+---
+
+## Microsoft AZ-204 Exam - Page 5 Questions
+
+### Question 11
+
+#### English Version
+This question requires that you evaluate the underlined text to determine if it is correct.  
+Your Azure Active Directory Azure (Azure AD) tenant has an Azure subscription linked to it.  
+Your developer has created a mobile application that obtains Azure AD access tokens using the OAuth 2 implicit grant type.  
+The mobile application must be registered in Azure AD.  
+You require a redirect URI from the developer for registration purposes.  
+Instructions: Review the underlined text. If it makes the statement correct, select `No change is needed.` If the statement is incorrect, select the answer choice that makes the statement correct.
+- A. No change required.
+- B. a secret
+- C. a login hint
+- D. a client ID
+
+<details>
+<summary>Answer</summary>
+    
+**Correct Answer: A**  
+
+For Native Applications, you need to provide a Redirect URI, which Azure AD will use to return token responses.  
+Reference: [Azure AD OAuth 2.0 Implicit Grant](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-protocols-oauth-code)
+</details>
+
+#### Korean Version
+이 질문은 밑줄 친 텍스트를 평가하여 올바른지 여부를 결정해야 합니다.  
+Azure Active Directory (Azure AD) 테넌트에 Azure 구독이 연결되어 있습니다.  
+개발자는 OAuth 2 암시적 승인 유형을 사용하여 Azure AD 액세스 토큰을 얻는 모바일 애플리케이션을 만들었습니다.  
+모바일 애플리케이션은 Azure AD에 등록되어야 합니다.  
+등록 목적으로 개발자로부터 리디렉션 URI가 필요합니다.  
+지침: 밑줄 친 텍스트를 검토하십시오. 진술이 올바른 경우 `No change required.`를 선택하십시오. 진술이 잘못된 경우, 올바른 답변을 선택하십시오.
+- A. 변경 필요 없음
+- B. 비밀
+- C. 로그인 힌트
+- D. 클라이언트 ID
+
+<details>
+<summary>정답</summary>
+    
+**정답: A**  
+
+네이티브 애플리케이션의 경우 Azure AD가 토큰 응답을 반환할 리디렉션 URI를 제공해야 합니다.  
+참조: [Azure AD OAuth 2.0 암시적 승인](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-protocols-oauth-code)
+</details>
+
+**Key Terms:**
+- Azure Active Directory (Azure AD)
+- OAuth 2 implicit grant
+- Redirect URI
+
+---
+
+### Question 12
+
+#### English Version
+You are creating an Azure key vault using PowerShell. Objects deleted from the key vault must be kept for a set period of 90 days.  
+Which two of the following parameters must be used in conjunction to meet the requirement? (Choose two.)
+- A. EnabledForDeployment
+- B. EnablePurgeProtection
+- C. EnabledForTemplateDeployment
+- D. EnableSoftDelete
+
+<details>
+<summary>Answer</summary>
+    
+**Correct Answer: B, D**  
+
+Reference: [Azure Key Vault Soft-Delete](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete)  
+[Azure PowerShell New-AzKeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/new-azurermkeyvault)
+</details>
+
+#### Korean Version
+PowerShell을 사용하여 Azure 키 자격 증명 모음을 생성하고 있습니다. 키 자격 증명 모음에서 삭제된 객체는 90일 동안 보관되어야 합니다.  
+이 요구 사항을 충족하려면 다음 두 가지 매개변수를 함께 사용해야 합니다. (두 가지를 선택하십시오.)
+- A. 배포를 위해 활성화됨
+- B. 삭제 보호 활성화
+- C. 템플릿 배포를 위해 활성화됨
+- D. 소프트 삭제 활성화
+
+<details>
+<summary>정답</summary>
+    
+**정답: B, D**  
+
+참조: [Azure 키 자격 증명 모음 소프트 삭제](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete)  
+[Azure PowerShell New-AzKeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/new-azurermkeyvault)
+</details>
+
+**Key Terms:**
+- Azure key vault
+- PowerShell
+- EnablePurgeProtection
+- EnableSoftDelete
+
+---
+
+### Question 13
+
+#### English Version
+You have an Azure Active Directory (Azure AD) tenant.  
+You want to implement multi-factor authentication by making use of a conditional access policy. The conditional access policy must be applied to all users when they access the Azure portal.  
+Which three settings should you configure? To answer, select the appropriate settings in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+**Correct Answer:**
+
+- **Box 1:** The conditional access policy must be applied or assigned to Users and Groups.
+- **Box 2:** The conditional access policy must be applied when users access the Azure portal, which is a cloud app. That is: Microsoft Azure Management.
+- **Box 3:** Access control must require multi-factor authentication when granting access.
+
+Reference: [Azure AD Conditional Access Policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-mfa)
+
+#### Korean Version
+Azure Active Directory (Azure AD) 테넌트가 있습니다.  
+조건부 액세스 정책을 사용하여 다단계 인증을 구현하려고 합니다. 조건부 액세스 정책은 Azure 포털에 액세스할 때 모든 사용자에게 적용되어야 합니다.  
+어떤 세 가지 설정을 구성해야 합니까? 정답을 선택 영역에서 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+**정답:**
+
+- **Box 1:** 조건부 액세스 정책은 사용자 및 그룹에 적용되거나 할당되어야 합니다.
+- **Box 2:** 조건부 액세스 정책은 사용자가 Azure 포털, 즉 Microsoft Azure 관리라는 클라우드 앱에 액세스할 때 적용되어야 합니다.
+- **Box 3:** 액세스 제어는 액세스를 허용할 때 다단계 인증이 필요합니다.
+
+참조: [Azure AD 조건부 액세스 정책](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-mfa)
+
+**Key Terms:**
+- Azure Active Directory (Azure AD)
+- Multi-factor authentication
+- Conditional access policy
+
+---
+
+### Question 14
+
+#### English Version
+You manage an Azure SQL database that allows for Azure AD authentication.  
+You need to make sure that database developers can connect to the SQL database via Microsoft SQL Server Management Studio (SSMS). You also need to make sure the developers use their on-premises Active Directory account for authentication. Your strategy should allow for authentication prompts to be kept to a minimum.  
+Which of the following should you implement?
+- A. Azure AD token.
+- B. Azure Multi-Factor authentication.
+- C. Active Directory integrated authentication.
+- D. OATH software tokens.
+
+<details>
+<summary>Answer</summary>
+    
+**Correct Answer: C**  
+
+Azure AD can be the initial Azure AD managed domain. Azure AD can also be an on-premises Active Directory Domain Services that is federated with the Azure AD.  
+Using an Azure AD identity to connect using SSMS or SSDT.  
+The following procedures show you how to connect to a SQL database with an Azure AD identity using SQL Server Management Studio or SQL Server Database Tools.  
+Active Directory integrated authentication:  
+Use this method if you are logged in to Windows using your Azure Active Directory credentials from a federated domain.  
+1. Start Management Studio or Data Tools and in the Connect to Server (or Connect to Database Engine) dialog box, in the Authentication box, select Active Directory - Integrated. No password is needed or can be entered because your existing credentials will be presented for the connection.  
+2. Select the Options button, and on the Connection Properties page, in the Connect to database box, type the name of the user database you want to connect to. (The AD domain name or tenant ID option is only supported for Universal with MFA connection options, otherwise it is greyed out.)
+</details>
+
+#### Korean Version
+Azure AD 인증을 허용하는 Azure SQL 데이터베이스를 관리합니다.  
+데이터베이스 개발자가 Microsoft SQL Server Management Studio (SSMS)를 통해 SQL 데이터베이스에 연결할 수 있도록 해야 합니다. 또한 개발자가 인증을 위해 온프레미스 Active Directory 계정을 사용하도록 해야 합니다. 인증 프롬프트를 최소한으로 유지하는 전략을 마련해야 합니다.  
+다음 중 무엇을 구현해야 합니까?
+- A. Azure AD 토큰
+- B. Azure 다단계 인증
+- C. Active Directory 통합 인증
+- D. OATH 소프트웨어 토큰
+
+<details>
+<summary>정답</summary>
+    
+**정답: C**  
+
+Azure AD는 초기 Azure AD 관리 도메인이 될 수 있습니다. Azure AD는 또한 Azure AD와 페더레이션된 온프레미스 Active Directory Domain Services가 될 수 있습니다.  
+SSMS 또는 SSDT를 사용하여 Azure AD ID로 SQL 데이터베이스에 연결하는 방법은 다음과 같습니다.  
+Active Directory
+
+ 통합 인증:  
+이 방법은 페더레이션된 도메인의 Azure Active Directory 자격 증명을 사용하여 Windows에 로그인한 경우 사용합니다.  
+1. Management Studio 또는 Data Tools를 시작하고 서버 연결(또는 데이터베이스 엔진 연결) 대화 상자에서 인증 상자에 Active Directory - Integrated를 선택합니다. 기존 자격 증명이 연결에 사용되므로 비밀번호를 입력할 필요가 없습니다.  
+2. 옵션 버튼을 선택하고 연결 속성 페이지에서 연결할 데이터베이스 상자에 연결할 사용자 데이터베이스의 이름을 입력합니다. (AD 도메인
+
+**Key Terms:**
+- Azure SQL database
+- Azure AD authentication
+- Active Directory integrated authentication
+
+---
+
+### Question 15
+
+#### English Version
+You are developing an application to transfer data between on-premises file servers and Azure Blob storage. The application stores keys, secrets, and certificates in Azure Key Vault and makes use of the Azure Key Vault APIs.  
+You want to configure the application to allow recovery of an accidental deletion of the key vault or key vault objects for 90 days after deletion.  
+What should you do?
+- A. Run the Add-AzKeyVaultKey cmdlet.
+- B. Run the az keyvault update --enable-soft-delete true --enable-purge-protection true CLI.
+- C. Implement virtual network service endpoints for Azure Key Vault.
+- D. Run the az keyvault update --enable-soft-delete false CLI.
+
+<details>
+<summary>Answer</summary>
+    
+**Correct Answer: B**  
+
+When soft-delete is enabled, resources marked as deleted resources are retained for a specified period (90 days by default). The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion.  
+Purge protection is an optional Key Vault behavior and is not enabled by default. Purge protection can only be enabled once soft-delete is enabled.  
+When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed.  
+The default retention period is 90 days, but it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. Once the retention policy interval is set and saved it cannot be changed for that vault.  
+Reference: [Azure Key Vault Soft-Delete](https://docs.microsoft.com/en-us/azure/key-vault/general/overview-soft-delete)
+</details>
+
+#### Korean Version
+온프레미스 파일 서버와 Azure Blob 스토리지 간에 데이터를 전송하는 애플리케이션을 개발하고 있습니다. 애플리케이션은 Azure Key Vault에 키, 비밀 및 인증서를 저장하고 Azure Key Vault API를 사용합니다.  
+삭제 후 90일 동안 키 자격 증명 모음 또는 키 자격 증명 모음 객체의 실수로 인한 삭제 복구를 허용하도록 애플리케이션을 구성하려고 합니다.  
+어떻게 해야 합니까?
+- A. Add-AzKeyVaultKey cmdlet 실행.
+- B. az keyvault update --enable-soft-delete true --enable-purge-protection true CLI 실행.
+- C. Azure Key Vault에 가상 네트워크 서비스 엔드포인트 구현.
+- D. az keyvault update --enable-soft-delete false CLI 실행.
+
+<details>
+<summary>정답</summary>
+    
+**정답: B**  
+
+소프트 삭제가 활성화되면 삭제된 리소스로 표시된 리소스가 지정된 기간(기본적으로 90일) 동안 보존됩니다. 서비스는 삭제를 취소하는 기본적으로 삭제된 객체를 복구하는 메커니즘을 추가로 제공합니다.  
+삭제 보호는 선택적 키 자격 증명 모음 동작이며 기본적으로 활성화되지 않습니다. 소프트 삭제가 활성화된 후에만 삭제 보호를 활성화할 수 있습니다.  
+삭제 보호가 켜지면 보존 기간이 지나기 전까지 삭제된 상태의 자격 증명 모음 또는 객체를 삭제할 수 없습니다. 소프트 삭제된 자격 증명 모음 및 객체는 여전히 복구될 수 있으며 보존 정책이 준수됩니다.  
+기본 보존 기간은 90일이지만 Azure 포털을 통해 보존 정책 간격을 7일에서 90일 사이의 값으로 설정할 수 있습니다. 일단 보존 정책 간격이 설정되고 저장되면 해당 자격 증명 모음에 대해 변경할 수 없습니다.  
+참조: [Azure Key Vault 소프트 삭제](https://docs.microsoft.com/en-us/azure/key-vault/general/overview-soft-delete)
+</details>
+
+**Key Terms:**
+- Azure Key Vault
+- Soft-delete
+- Purge protection
+
+---
+
+### Question 16
+
+#### English Version
+You have developed a Web App for your company. The Web App provides services and must run in multiple regions.  
+You want to be notified whenever the Web App uses more than 85 percent of the available CPU cores over a 5 minute period. Your solution must minimize costs.  
+Which command should you use? To answer, select the appropriate settings in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+<details>
+<summary>Answer</summary>
+    
+**Correct Answer:**
+
+Reference: [Azure Monitor Metrics Alerts](https://docs.microsoft.com/sv-se/cli/azure/monitor/metrics/alert)
+</details>
+
+#### Korean Version
+회사를 위해 웹 앱을 개발했습니다. 웹 앱은 여러 지역에서 실행되어야 합니다.  
+웹 앱이 5분 동안 사용 가능한 CPU 코어의 85% 이상을 사용할 때 알림을 받고 싶습니다. 솔루션은 비용을 최소화해야 합니다.  
+어떤 명령을 사용해야 합니까? 정답을 선택 영역에서 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+<details>
+<summary>정답</summary>
+    
+**정답:**
+
+참조: [Azure 모니터링 메트릭 경고](https://docs.microsoft.com/sv-se/cli/azure/monitor/metrics/alert)
+</details>
+
+**Key Terms:**
+- Web App
+- CPU usage alert
+- Cost minimization
+
+---
+
+### Question 17
+
+#### English Version
+You are configuring a web app that delivers streaming video to users. The application makes use of continuous integration and deployment.  
+You need to ensure that the application is highly available and that the users' streaming experience is constant. You also want to configure the application to store data in a geographic location that is nearest to the user.  
+Solution: You include the use of Azure Redis Cache in your design.  
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+<details>
+<summary>Answer</summary>
+    
+**Correct Answer: B**
+
+</details>
+
+#### Korean Version
+사용자에게 스트리밍 비디오를 제공하는 웹 앱을 구성하고 있습니다. 애플리케이션은 지속적인 통합 및 배포를 사용합니다.  
+애플리케이션이 고가용성을 유지하고 사용자의 스트리밍 경험이 일관되도록 해야 합니다. 또한 애플리케이션 데이터를 사용자와 가까운 지리적 위치에 저장하도록 구성하려고 합니다.  
+솔루션: Azure Redis Cache를 설계에 포함시킵니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+<details>
+<summary>정답</summary>
+    
+**정답: B**
+</details>
+
+**Key Terms:**
+- Web app
+- Streaming video
+- High availability
+- Azure Redis Cache
+
+---
+
+### Question 18
+
+#### English Version
+You are configuring a web app that delivers streaming video to users. The application makes use of continuous integration and deployment.  
+You need to ensure that the application is highly available and that the users' streaming experience is constant. You also want to configure the application to store data in a geographic location that is nearest to the user.  
+Solution: You include the use of an Azure Content Delivery Network (CDN) in your design.  
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+<details>
+<summary>Answer</summary>
+    
+**Correct Answer: A**  
+
+Reference: [Azure CDN](https://docs.microsoft.com/en-in/azure/cdn/)
+</details>
+
+#### Korean Version
+사용자에게 스트리밍 비디오를 제공하는 웹 앱을 구성하고 있습니다. 애플리케이션은 지속적인 통합 및 배포를 사용합니다.  
+애플리케이션이 고가용성을 유지하고 사용자의 스트리밍 경험이 일관되도록 해야 합니다. 또한 애플리케이션 데이터를 사용자와 가까운 지리적 위치에 저장하도록 구성하려고 합니다.  
+솔루션: Azure Content Delivery Network (CDN)를 설계에 포함시킵니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+<details>
+<summary>정답</summary>
+    
+**정답: A**  
+
+참조: [Azure CDN](https://docs.microsoft.com/en-in/azure/cdn/)
+</details>
+
+**Key Terms:**
+- Web app
+- Streaming video
+- High availability
+- Azure Content Delivery Network (CDN)
+
+---
+
+### Question 19
+
+#### English Version
+You are configuring a web app that delivers streaming video to users. The application makes use of continuous integration and deployment.  
+You need to ensure that the application is highly available and that the users' streaming experience is constant. You also want to configure the application to store data in a geographic location that is nearest to the user.
+
+  
+Solution: You include the use of a Storage Area Network (SAN) in your design.  
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+<details>
+<summary>Answer</summary>
+    
+**Correct Answer: B**
+</details>
+
+#### Korean Version
+사용자에게 스트리밍 비디오를 제공하는 웹 앱을 구성하고 있습니다. 애플리케이션은 지속적인 통합 및 배포를 사용합니다.  
+애플리케이션이 고가용성을 유지하고 사용자의 스트리밍 경험이 일관되도록 해야 합니다. 또한 애플리케이션 데이터를 사용자와 가까운 지리적 위치에 저장하도록 구성하려고 합니다.  
+솔루션: 설계에 Storage Area Network (SAN)를 포함시킵니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+<details>
+<summary>정답</summary>
+    
+**정답: B**
+</details>
+
+**Key Terms:**
+- Web app
+- Streaming video
+- High availability
+- Storage Area Network (SAN)
+
+---
+
+### Question 20
+
+#### English Version
+You develop a Web App on a tier D1 app service plan.  
+You notice that page load times increase during periods of peak traffic.  
+You want to implement automatic scaling when CPU load is above 80 percent. Your solution must minimize costs.  
+What should you do first?
+- A. Enable autoscaling on the Web App.
+- B. Switch to the Premium App Service tier plan.
+- C. Switch to the Standard App Service tier plan.
+- D. Switch to the Azure App Services consumption plan.
+
+<details>
+<summary>Answer</summary>
+    
+**Correct Answer: C**  
+
+Configure the web app to the Standard App Service Tier. The Standard tier supports auto-scaling, and we should minimize the cost. We can then enable autoscaling on the web app, add a scale rule and add a Scale condition.  
+Reference: [Azure App Service Plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)  
+[Monitoring Autoscale Get Started](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started)
+</details>
+
+#### Korean Version
+D1 앱 서비스 플랜에서 웹 앱을 개발합니다.  
+피크 트래픽 기간 동안 페이지 로드 시간이 증가하는 것을 알게 되었습니다.  
+CPU 로드가 80%를 초과할 때 자동 스케일링을 구현하려고 합니다. 솔루션은 비용을 최소화해야 합니다.  
+가장 먼저 무엇을 해야 합니까?
+- A. 웹 앱에서 자동 스케일링을 활성화합니다.
+- B. 프리미엄 앱 서비스 티어 플랜으로 전환합니다.
+- C. 표준 앱 서비스 티어 플랜으로 전환합니다.
+- D. Azure 앱 서비스 소비 플랜으로 전환합니다.
+
+<details>
+<summary>정답</summary>
+    
+**정답: C**  
+
+웹 앱을 표준 앱 서비스 티어로 구성합니다. 표준 계층은 자동 스케일링을 지원하며 비용을 최소화해야 합니다. 그런 다음 웹 앱에서 자동 스케일링을 활성화하고, 스케일 규칙을 추가하고, 스케일 조건을 추가할 수 있습니다.  
+참조: [Azure 앱 서비스 플랜](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)  
+[모니터링 자동 스케일링 시작](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started)
+</details>
+
+**Key Terms:**
+- Web app
+- Tier D1 app service plan
+- Automatic scaling
+- Standard App Service tier plan
+
+### Question 21
+
+#### English Version
+Your company's Azure subscription includes an Azure Log Analytics workspace.  
+Your company has a hundred on-premises servers that run either Windows Server 2012 R2 or Windows Server 2016 and is linked to the Azure Log Analytics workspace. The Azure Log Analytics workspace is set up to gather performance counters associated with security from these linked servers.  
+You must configure alerts based on the information gathered by the Azure Log Analytics workspace.  
+You have to make sure that alert rules allow for dimensions, and that alert creation time should be kept to a minimum. Furthermore, a single alert notification must be created when the alert is created and when the alert is resolved.  
+You need to make use of the necessary signal type when creating the alert rules.  
+Which of the following is the option you should use?
+- A. The Activity log signal type.
+- B. The Application Log signal type.
+- C. The Metric signal type.
+- D. The Audit Log signal type.
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: C**  
+  
+Metric alerts in Azure Monitor provide a way to get notified when one of your metrics crosses a threshold. Metric alerts work on a range of multi-dimensional platform metrics, custom metrics, Application Insights standard and custom metrics.  
+Note: Signals are emitted by the target resource and can be of several types: Metric, Activity log, Application Insights, and Log.  
+Reference: [Azure Monitor Metric Alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric)  
+</details>
+
+#### Korean Version
+회사의 Azure 구독에는 Azure Log Analytics 작업 영역이 포함되어 있습니다.  
+회사는 Windows Server 2012 R2 또는 Windows Server 2016을 실행하는 100대의 온프레미스 서버를 보유하고 있으며 Azure Log Analytics 작업 영역과 연결되어 있습니다. Azure Log Analytics 작업 영역은 이러한 연결된 서버에서 보안과 관련된 성능 카운터를 수집하도록 설정되어 있습니다.  
+Azure Log Analytics 작업 영역에서 수집한 정보를 기반으로 경고를 구성해야 합니다.  
+경고 규칙이 차원을 허용하고 경고 생성 시간을 최소화해야 합니다. 또한 경고가 생성될 때와 해결될 때 단일 경고 알림이 생성되어야 합니다.  
+경고 규칙을 만들 때 필요한 신호 유형을 사용해야 합니다.  
+다음 옵션 중 어떤 것을 사용해야 합니까?
+- A. 활동 로그 신호 유형
+- B. 응용 프로그램 로그 신호 유형
+- C. 메트릭 신호 유형
+- D. 감사 로그 신호 유형
+
+<details>
+<summary>정답</summary>
+  
+**정답: C**  
+  
+Azure Monitor의 메트릭 경고는 메트릭이 임계값을 초과할 때 알림을 받는 방법을 제공합니다. 메트릭 경고는 다양한 다차원 플랫폼 메트릭, 사용자 정의 메트릭, Application Insights 표준 및 사용자 정의 메트릭에서 작동합니다.  
+참고: 신호는 대상 리소스에 의해 발생하며 여러 유형일 수 있습니다: 메트릭, 활동 로그, Application Insights 및 로그.  
+참조: [Azure Monitor 메트릭 경고](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric)  
+</details>
+
+**Key Terms:**
+- Azure Log Analytics
+- Metric alerts
+- Azure Monitor
+
+---
+
+### Question 22
+
+#### English Version
+You are developing a .NET Core MVC application that allows customers to research independent holiday accommodation providers.  
+You want to implement Azure Search to allow the application to search the index by using various criteria to locate documents related to accommodation.  
+You want the application to allow customers to search the index by using regular expressions.  
+What should you do?
+- A. Configure the SearchMode property of the SearchParameters class.
+- B. Configure the QueryType property of the SearchParameters class.
+- C. Configure the Facets property of the SearchParameters class.
+- D. Configure the Filter property of the SearchParameters class.
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: B**  
+  
+The SearchParameters.QueryType Property gets or sets a value that specifies the syntax of the search query. The default is 'simple'. Use 'full' if your query uses the Lucene query syntax.  
+You can write queries against Azure Search based on the rich Lucene Query Parser syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples.  
+Reference: [SearchParameters.QueryType Property](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.models.searchparameters.querytype)  
+</details>
+
+#### Korean Version
+독립적인 휴가 숙박 제공업체를 연구할 수 있는 .NET Core MVC 애플리케이션을 개발하고 있습니다.  
+애플리케이션에서 다양한 기준을 사용하여 숙박과 관련된 문서를 찾기 위해 인덱스를 검색할 수 있도록 Azure Search를 구현하려고 합니다.  
+애플리케이션이 고객이 정규식을 사용하여 인덱스를 검색할 수 있도록 하려고 합니다.  
+어떻게 해야 합니까?
+- A. SearchParameters 클래스의 SearchMode 속성을 구성합니다.
+- B. SearchParameters 클래스의 QueryType 속성을 구성합니다.
+- C. SearchParameters 클래스의 Facets 속성을 구성합니다.
+- D. SearchParameters 클래스의 Filter 속성을 구성합니다.
+
+<details>
+<summary>정답</summary>
+  
+**정답: B**  
+  
+SearchParameters.QueryType 속성은 검색 쿼리의 구문을 지정하는 값을 가져오거나 설정합니다. 기본값은 'simple'입니다. 쿼리에 Lucene 쿼리 구문을 사용하는 경우 'full'을 사용합니다.  
+Azure Search에 대해 Lucene Query Parser 구문을 기반으로 특수 쿼리 형식을 작성할 수 있습니다: 와일드카드, 퍼지 검색, 근접 검색, 정규식 등이 몇 가지 예입니다.  
+참조: [SearchParameters.QueryType 속성](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.models.searchparameters.querytype)  
+</details>
+
+**Key Terms:**
+- .NET Core MVC application
+- Azure Search
+- SearchParameters.QueryType
+- Regular expressions
+
+---
+
+### Question 23
+
+#### English Version
+You are a developer at your company.  
+You need to update the definitions for an existing Logic App.  
+What should you use?
+- A. the Enterprise Integration Pack (EIP)
+- B. the Logic App Code View
+- C. the API Connections
+- D. the Logic Apps Designer
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: D**  
+</details>
+
+#### Korean Version
+당신은 회사의 개발자입니다.  
+기존 Logic App의 정의를 업데이트해야 합니다.  
+무엇을 사용해야 합니까?
+- A. Enterprise Integration Pack (EIP)
+- B. Logic App 코드 보기
+- C. API 연결
+- D. Logic Apps 디자이너
+
+<details>
+<summary>정답</summary>
+  
+**정답: D**  
+</details>
+
+**Key Terms:**
+- Logic App
+- Definitions update
+- Logic Apps Designer
+
+---
+
+### Question 24
+
+#### English Version
+You are developing a solution for a public-facing API.  
+The API back end is hosted in an Azure App Service instance. You have implemented a RESTful service for the API back end.  
+You must configure back-end authentication for the API Management service instance.  
+Solution: You configure Basic gateway credentials for the Azure resource.  
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: B**  
+</details>
+
+#### Korean Version
+공개 API를 위한 솔루션을 개발하고 있습니다.  
+API 백엔드는 Azure App Service 인스턴스에 호스팅됩니다. API 백엔드를 위한 RESTful 서비스를 구현했습니다.  
+API Management 서비스 인스턴스에 대한 백엔드 인증을 구성해야 합니다.  
+솔루션: Azure 리소스에 대해 기본 게이트웨이 자격 증명을 구성합니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+<details>
+<summary>정답</summary>
+  
+**정답: B**  
+</details>
+
+**Key Terms:**
+- Public-facing API
+- Azure App Service
+- Back-end authentication
+- Basic gateway credentials
+
+---
+
+### Question 25
+
+#### English Version
+You are developing a solution for a public-facing API.  
+The API back end is hosted in an Azure App Service instance. You have implemented a RESTful service for the API back end.  
+You must configure back-end authentication for the API Management service instance.  
+Solution: You configure Client cert gateway credentials for the HTTP(s) endpoint.  
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: A**  
+</details>
+
+#### Korean Version
+공개 API를 위한 솔루션을 개발하고 있습니다.  
+API 백엔드는 Azure App Service 인스턴스에 호스팅됩니다. API 백엔드를 위한 RESTful 서비스를 구현했습니다.  
+API Management 서비스 인스턴스에 대한 백엔드 인증을 구성해야 합니다.  
+솔루션: HTTP(s) 엔드포인트에 대해 클라이언트 인증서 게이트웨이 자격 증명을 구성합니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B.
+
+ 아니요
+
+<details>
+<summary>정답</summary>
+  
+**정답: A**  
+</details>
+
+**Key Terms:**
+- Public-facing API
+- Azure App Service
+- Back-end authentication
+- Client cert gateway credentials
+
+---
+
+### Question 26
+
+#### English Version
+You are developing a solution for a public-facing API.  
+The API back end is hosted in an Azure App Service instance. You have implemented a RESTful service for the API back end.  
+You must configure back-end authentication for the API Management service instance.  
+Solution: You configure Basic gateway credentials for the HTTP(s) endpoint.  
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: B**  
+</details>
+
+#### Korean Version
+공개 API를 위한 솔루션을 개발하고 있습니다.  
+API 백엔드는 Azure App Service 인스턴스에 호스팅됩니다. API 백엔드를 위한 RESTful 서비스를 구현했습니다.  
+API Management 서비스 인스턴스에 대한 백엔드 인증을 구성해야 합니다.  
+솔루션: HTTP(s) 엔드포인트에 대해 기본 게이트웨이 자격 증명을 구성합니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+<details>
+<summary>정답</summary>
+  
+**정답: B**  
+</details>
+
+**Key Terms:**
+- Public-facing API
+- Azure App Service
+- Back-end authentication
+- Basic gateway credentials
+
+---
+
+### Question 27
+
+#### English Version
+You are developing a solution for a public-facing API.  
+The API back end is hosted in an Azure App Service instance. You have implemented a RESTful service for the API back end.  
+You must configure back-end authentication for the API Management service instance.  
+Solution: You configure Client cert gateway credentials for the Azure resource.  
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: B**  
+</details>
+
+#### Korean Version
+공개 API를 위한 솔루션을 개발하고 있습니다.  
+API 백엔드는 Azure App Service 인스턴스에 호스팅됩니다. API 백엔드를 위한 RESTful 서비스를 구현했습니다.  
+API Management 서비스 인스턴스에 대한 백엔드 인증을 구성해야 합니다.  
+솔루션: Azure 리소스에 대해 클라이언트 인증서 게이트웨이 자격 증명을 구성합니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+<details>
+<summary>정답</summary>
+  
+**정답: B**  
+</details>
+
+**Key Terms:**
+- Public-facing API
+- Azure App Service
+- Back-end authentication
+- Client cert gateway credentials
+
+---
+
+### Question 28
+
+#### English Version
+You are developing a .NET Core MVC application that allows customers to research independent holiday accommodation providers.  
+You want to implement Azure Search to allow the application to search the index by using various criteria to locate documents related to accommodation venues.  
+You want the application to list holiday accommodation venues that fall within a specific price range and are within a specified distance to an airport.  
+What should you do?
+- A. Configure the SearchMode property of the SearchParameters class.
+- B. Configure the QueryType property of the SearchParameters class.
+- C. Configure the Facets property of the SearchParameters class.
+- D. Configure the Filter property of the SearchParameters class.
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: D**  
+</details>
+
+#### Korean Version
+독립적인 휴가 숙박 제공업체를 연구할 수 있는 .NET Core MVC 애플리케이션을 개발하고 있습니다.  
+애플리케이션에서 다양한 기준을 사용하여 숙박과 관련된 문서를 찾기 위해 인덱스를 검색할 수 있도록 Azure Search를 구현하려고 합니다.  
+애플리케이션이 특정 가격 범위에 속하고 공항에서 지정된 거리 내에 있는 휴가 숙박 장소를 나열하도록 하려고 합니다.  
+어떻게 해야 합니까?
+- A. SearchParameters 클래스의 SearchMode 속성을 구성합니다.
+- B. SearchParameters 클래스의 QueryType 속성을 구성합니다.
+- C. SearchParameters 클래스의 Facets 속성을 구성합니다.
+- D. SearchParameters 클래스의 Filter 속성을 구성합니다.
+
+<details>
+<summary>정답</summary>
+  
+**정답: D**  
+</details>
+
+**Key Terms:**
+- .NET Core MVC application
+- Azure Search
+- Accommodation venues
+- Filter property
+
+---
+
+### Question 29
+
+#### English Version
+You are a developer at your company.  
+You need to edit the workflows for an existing Logic App.  
+What should you use?
+- A. the Enterprise Integration Pack (EIP)
+- B. the Logic App Code View
+- C. the API Connections
+- D. the Logic Apps Designer
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: D**  
+</details>
+
+#### Korean Version
+당신은 회사의 개발자입니다.  
+기존 Logic App의 워크플로를 편집해야 합니다.  
+무엇을 사용해야 합니까?
+- A. Enterprise Integration Pack (EIP)
+- B. Logic App 코드 보기
+- C. API 연결
+- D. Logic Apps 디자이너
+
+<details>
+<summary>정답</summary>
+  
+**정답: D**  
+</details>
+
+**Key Terms:**
+- Logic App
+- Workflows edit
+- Logic Apps Designer
+
+---
+
+### Question 30
+
+#### English Version
+You are a developer for a company that provides a bookings management service in the tourism industry. You are implementing Azure Search for the tour agencies listed in your company's solution.  
+You create the index in Azure Search. You now need to use the Azure Search .NET SDK to import the relevant data into the Azure Search service.  
+Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions from left to right and arrange them in the correct order.  
+Select and Place:
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer:**  
+1. The index needs to be populated. To do this, we will need a SearchIndexClient. There are two ways to obtain one: by constructing it, or by calling Indexes.GetClient on the SearchServiceClient. Here we will use the first method.  
+2. Create the indexBatch with the documents  
+   Something like:
+   ```csharp
+   var hotels = new Hotel[] {
+       new Hotel() {
+           HotelId = "3",
+           BaseRate = 129.99,
+           Description = "Close to town hall and the river"
+       }
+   };
+   var batch = IndexBatch.Upload(hotels);
+   ```
+3. The next step is to populate the newly-created index
+   ```csharp
+   var batch = IndexBatch.Upload(hotels);
+   try {
+       indexClient.Documents.Index(batch);
+   }
+   ```
+Reference: [Azure Search .NET SDK](https://docs.microsoft.com/en-us/azure/search/search-howto-dotnet-sdk)
+</details>
+
+#### Korean Version
+당신은 관광 산업에서 예약 관리 서비스를 제공하는 회사의 개발자입니다. 회사 솔루션에 나열된 여행사를 위해 Azure Search를 구현하고 있습니다.  
+Azure Search에서 인덱스를 만듭니다. 이제 Azure Search .NET SDK를 사용하여 관련 데이터를 Azure Search 서비스에 가져와야 합니다.  
+어떤 세 가지 작업을 순서대로 수행해야 합니까? 답변하려면 작업 목록에서 적절한 작업을 왼쪽에서 오른쪽으로 이동하여 올바른 순서로 배열하십시오.  
+선택하고 배치하십시오:
+
+<details>
+<summary>정답</summary>
+  
+**정답:**  
+1. 인덱스를 채워야 합니다. 이렇게 하려면 SearchIndexClient가 필요합니다. 이를 얻는 방법은 두 가지가 있습니다: 생성하거나 SearchServiceClient의 Indexes.GetClient를 호출합니다. 여기서는 첫 번째 방법을 사용합니다.  
+2. 문서로 indexBatch를 만듭니다.
+   ```csharp
+   var hotels = new Hotel[] {
+       new Hotel() {
+           HotelId = "3",
+           BaseRate = 129.99,
+           Description = "Close to town hall and the river"
+       }
+   };
+   var batch = IndexBatch.Upload(hotels);
+   ```
+3. 새로 생성된 인덱스를 채웁니다.
+   ```csharp
+   var batch = IndexBatch.Upload(hotels);
+   try {
+       indexClient.Documents.Index(batch);
+   }
+   ```
+참조: [Azure Search .NET SDK](https://docs.microsoft.com/en-us/azure/search/search-howto-dotnet-sdk)
+</details>
+
+**Key Terms:**
+- Azure Search
+- Index
+- Azure Search .NET SDK
+
+## Microsoft AZ-204 Exam - Page 5 Questions
+
+### Question 31
+
+#### English Version
+You are developing an application that applies a set of governance policies for internal and external services, as well as for applications.  
+You develop a stateful ASP.NET Core 2.1 web application named PolicyApp and deploy it to an Azure App Service Web App. The PolicyApp reacts to events from Azure Event Grid and performs policy actions based on those events.  
+You have the following requirements:
+- Authentication events must be used to monitor users when they sign in and sign out.
+- All authentication events must be processed by PolicyApp.
+- Sign outs must be processed as fast as possible.
+
+What should you do?
+- A. Create a new Azure Event Grid subscription for all authentication events. Use the subscription to process sign-out events.
+- B. Create a separate Azure Event Grid handler for sign-in and sign-out events.
+- C. Create separate Azure Event Grid topics and subscriptions for sign-in and sign-out events.
+- D. Add a subject prefix to sign-out events. Create an Azure Event Grid subscription. Configure the subscription to use the subjectBeginsWith filter.
+
+<details>
+<summary>Answer</summary>
+
+**Correct Answer: D**  
+</details>
+
+#### Korean Version
+내부 및 외부 서비스뿐만 아니라 애플리케이션에 대한 일련의 거버넌스 정책을 적용하는 애플리케이션을 개발하고 있습니다.  
+PolicyApp이라는 상태 저장 ASP.NET Core 2.1 웹 애플리케이션을 개발하여 Azure App Service 웹 앱에 배포합니다. PolicyApp은 Azure Event Grid의 이벤트에 반응하고 해당 이벤트를 기반으로 정책 작업을 수행합니다.  
+다음 요구 사항이 있습니다:
+- 인증 이벤트를 사용하여 사용자가 로그인하고 로그아웃할 때 모니터링해야 합니다.
+- 모든 인증 이벤트는 PolicyApp에서 처리해야 합니다.
+- 로그아웃은 가능한 한 빨리 처리되어야 합니다.
+
+어떻게 해야 합니까?
+- A. 모든 인증 이벤트에 대한 새 Azure Event Grid 구독을 만듭니다. 구독을 사용하여 로그아웃 이벤트를 처리합니다.
+- B. 로그인 및 로그아웃 이벤트에 대해 별도의 Azure Event Grid 핸들러를 만듭니다.
+- C. 로그인 및 로그아웃 이벤트에 대해 별도의 Azure Event Grid 주제 및 구독을 만듭니다.
+- D. 로그아웃 이벤트에 주제 접두사를 추가합니다. Azure Event Grid 구독을 만듭니다. 구독을 subjectBeginsWith 필터를 사용하도록 구성합니다.
+
+<details>
+<summary>정답</summary>
+
+**정답: D**  
+</details>
+
+**Key Terms:**
+- Azure Event Grid
+- PolicyApp
+- Authentication events
+
+---
+
+### Question 32
+
+#### English Version
+You are developing a C++ application that compiles to a native application named process.exe. The application accepts images as input and returns images in one of the following image formats: GIF, PNG, or JPEG.  
+You must deploy the application as an Azure Function.  
+You need to configure the function and host json files.  
+How should you complete the json files? To answer, select the appropriate options in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/f21cfae0-d066-4f90-9fbf-941abbde2bca)
+
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/bbc41a4f-5b78-4e5d-82e9-6c21fe48b162)
+
+- Box 1: "type": "http"
+- Box 2: "customHandler": { "description":{
+A custom handler is defined by configuring the host.json file with details on how to run the web server via the customHandler section.
+The customHandler section points to a target as defined by the defaultExecutablePath.
+Example:
+"customHandler": {
+"description": {
+"defaultExecutablePath": "handler.exe"
+- Box 3: "enableForwardingHttpRequest": false
+Incorrect:
+For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler request and response payloads. This behavior can be configured in host.json using the enableForwardingHttpRequest setting.
+At the root of the app, the host.json file is configured to run handler.exe and enableForwardingHttpRequest is set to true.
+
+- Reference: https://docs.microsoft.com/en-us/azure/azure-functions/functions-custom-handlers
+
+</details>
+
+#### Korean Version
+C++ 애플리케이션을 개발 중이며, 이 애플리케이션은 process.exe라는 네이티브 애플리케이션으로 컴파일됩니다. 이 애플리케이션은 이미지를 입력으로 받아 GIF, PNG 또는 JPEG 형식의 이미지로 반환합니다.  
+애플리케이션을 Azure Function으로 배포해야 합니다.  
+function 및 host json 파일을 구성해야 합니다.  
+json 파일을 어떻게 완성해야 합니까? 답변하려면 답변 영역에서 적절한 옵션을 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/f21cfae0-d066-4f90-9fbf-941abbde2bca)
+
+<details>
+<summary>정답</summary>
+
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/bbc41a4f-5b78-4e5d-82e9-6c21fe48b162)
+
+</details>
+
+**Key Terms:**
+- C++ application
+- Azure Function
+- JSON configuration
+
+---
+
+### Question 33
+
+#### English Version
+You are developing an Azure Static Web app that contains training materials for a tool company. Each tool’s training material is contained in a static web page that is linked from the tool’s publicly available description page.  
+A user must be authenticated using Azure AD prior to viewing training.  
+You need to ensure that the user can view training material pages after authentication.  
+How should you complete the configuration file? To answer, select the appropriate options in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/e669e16a-5072-482c-82ee-cbb881cf365c)
+
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/fdc95924-7b48-4694-a543-7e780235d19d)
+
+</details>
+
+#### Korean Version
+도구 회사의 교육 자료를 포함하는 Azure Static Web 앱을 개발하고 있습니다. 각 도구의 교육 자료는 도구의 공개 설명 페이지에서 링크된 정적 웹 페이지에 포함되어 있습니다.  
+사용자가 교육을 보기 전에 Azure AD를 통해 인증되어야 합니다.  
+사용자가 인증 후 교육 자료 페이지를 볼 수 있도록 해야 합니다.  
+구성 파일을 어떻게 완성해야 합니까? 답변하려면 답변 영역에서 적절한 옵션을 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/e669e16a-5072-482c-82ee-cbb881cf365c)
+
+<details>
+<summary>정답</summary>
+
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/fdc95924-7b48-4694-a543-7e780235d19d)
+
+</details>
+
+**Key Terms:**
+- Azure Static Web app
+- Azure AD authentication
+- Configuration file
+
+---
+
+### Question 34
+
+#### English Version
+You are authoring a set of nested Azure Resource Manager templates to deploy Azure resources. You author an Azure Resource Manager template named mainTemplate.json that contains the following linked templates: linkedTemplate1.json, linkedTemplate2.json.  
+You add parameters to a parameters template file named mainTemplate.parameters.json. You save all templates on a local device in the C:\templates\ folder.  
+You have the following requirements:
+- Store the templates in Azure for later deployment.
+- Enable versioning of the templates.
+- Manage access to the templates by using Azure RBAC.
+- Ensure that users have read-only access to the templates.
+- Allow users to deploy the templates.
+
+You need to store the templates in Azure.  
+How should you complete the command? To answer, select the appropriate options in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/80fab442-1639-4cbc-95d4-89ba6d4267db)
+
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/37fa49ae-fe52-45a4-9e41-3b6e45d5d2e1)
+
+</details>
+
+#### Korean Version
+Azure 리소스를 배포하기 위해 중첩된 Azure Resource Manager 템플릿 세트를 작성하고 있습니다. linkedTemplate1.json 및 linkedTemplate2.json이라는 링크된 템플릿을 포함하는 mainTemplate.json이라는 Azure Resource Manager 템플릿을 작성합니다.  
+mainTemplate.parameters.json이라는 매개변수 템플릿 파일에 매개변수를 추가합니다. 모든 템플릿을 C:\templates\ 폴더의 로컬 장치에 저장합니다.  
+다음 요구 사항이 있습니다:
+- 나중에 배포할 수 있도록 템플릿을 Azure에 저장합니다.
+- 템플릿의 버전 관리를 활성화합니다.
+- Azure RBAC를 사용하여 템플릿에 대한 액세스를 관리합니다.
+- 사용자가 템플릿을 읽기 전용으로 액세스할 수 있도록 합니다.
+- 사용자가 템플릿을 배포할 수 있도록 합니다.
+
+템플릿을 Azure에 저장해야
+
+ 합니다.  
+명령을 어떻게 완성해야 합니까? 답변하려면 답변 영역에서 적절한 옵션을 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/80fab442-1639-4cbc-95d4-89ba6d4267db)
+
+<details>
+<summary>정답</summary>
+
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/37fa49ae-fe52-45a4-9e41-3b6e45d5d2e1)
+
+</details>
+
+**Key Terms:**
+- Azure Resource Manager templates
+- Versioning
+- Azure RBAC
+
+---
+
+### Question 35
+
+#### English Version
+You are developing a service where customers can report news events from a browser using Azure Web PubSub. The service is implemented as an Azure Function App that uses the JSON WebSocket subprotocol to receive news events.  
+You need to implement the bindings for the Azure Function App.  
+How should you configure the binding? To answer, select the appropriate options in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/e3b0cbcf-e653-4a5a-a6bb-8a03dc52824c)
+
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/81bdc74a-e283-4ecc-8cff-67bb045b7205)
+
+</details>
+
+#### Korean Version
+고객이 브라우저를 사용하여 뉴스 이벤트를 보고할 수 있는 서비스를 개발하고 있습니다. 이 서비스는 뉴스 이벤트를 수신하기 위해 JSON WebSocket 서브프로토콜을 사용하는 Azure Function App으로 구현됩니다.  
+Azure Function App에 대한 바인딩을 구현해야 합니다.  
+바인딩을 어떻게 구성해야 합니까? 답변하려면 답변 영역에서 적절한 옵션을 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/e3b0cbcf-e653-4a5a-a6bb-8a03dc52824c)
+
+<details>
+<summary>정답</summary>
+
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/81bdc74a-e283-4ecc-8cff-67bb045b7205)
+
+</details>
+
+**Key Terms:**
+- Azure Web PubSub
+- Azure Function App
+- JSON WebSocket subprotocol
+
+---
+
+### Question 36
+
+#### English Version
+You are building a software-as-a-service (SaaS) application that analyzes DNA data that will run on Azure virtual machines (VMs) in an availability zone. The data is stored on managed disks attached to the VM. The performance of the analysis is determined by the speed of the disk attached to the VM.  
+You have the following requirements:
+- The application must be able to quickly revert to the previous day’s data if a systemic error is detected.
+- The application must minimize downtime in the case of an Azure datacenter outage.
+
+You need to provision the managed disk for the VM to maximize performance while meeting the requirements.  
+Which type of Azure Managed Disk should you use? To answer, select the appropriate options in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/104691c6-9bca-4b74-bb11-8b54877be626)
+
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/ea3dac5d-e03f-4a9e-bc1b-3663ea8d5f8e)
+
+</details>
+
+#### Korean Version
+Azure 가상 머신(VM)에서 실행되는 DNA 데이터를 분석하는 소프트웨어 서비스(SaaS) 애플리케이션을 구축하고 있습니다. 데이터는 VM에 연결된 관리 디스크에 저장됩니다. 분석 성능은 VM에 연결된 디스크의 속도에 따라 결정됩니다.  
+다음 요구 사항이 있습니다:
+- 시스템 오류가 감지되면 애플리케이션이 빠르게 이전 날의 데이터로 되돌릴 수 있어야 합니다.
+- Azure 데이터센터 장애 시 다운타임을 최소화해야 합니다.
+
+요구 사항을 충족하면서 성능을 최대화하기 위해 VM의 관리 디스크를 프로비저닝해야 합니다.  
+어떤 유형의 Azure 관리 디스크를 사용해야 합니까? 답변하려면 답변 영역에서 적절한 옵션을 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/104691c6-9bca-4b74-bb11-8b54877be626)
+
+<details>
+<summary>정답</summary>
+
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/ea3dac5d-e03f-4a9e-bc1b-3663ea8d5f8e)
+
+</details>
+
+**Key Terms:**
+- Azure Managed Disk
+- Premium SSD
+- Availability zone
+
+---
+
+### Question 37
+
+#### English Version
+You are developing an application that includes two Docker containers.  
+The application must meet the following requirements:
+- The containers must not run as root.
+- The containers must be deployed to Azure Container Instances by using a YAML file.
+- The containers must share a lifecycle, resources, local network, and storage volume.
+- The storage volume must persist through container crashes.
+- The storage volume must be deployed on stop or restart of the containers.
+
+You need to configure Azure Container Instances for the application.  
+Which configuration values should you use? To answer, select the appropriate options in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/cebd86b5-9244-4f41-ab97-70ccbfe2ceb7)
+
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/09c2fe91-b30a-48bd-9bdd-4ce2fddb5fbf)
+
+</details>
+
+#### Korean Version
+두 개의 Docker 컨테이너를 포함하는 애플리케이션을 개발하고 있습니다.  
+애플리케이션은 다음 요구 사항을 충족해야 합니다:
+- 컨테이너는 루트로 실행되지 않아야 합니다.
+- 컨테이너는 YAML 파일을 사용하여 Azure Container Instances에 배포되어야 합니다.
+- 컨테이너는 수명 주기, 리소스, 로컬 네트워크 및 저장소 볼륨을 공유해야 합니다.
+- 저장소 볼륨은 컨테이너 충돌 시에도 유지되어야 합니다.
+- 저장소 볼륨은 컨테이너 중지 또는 재시작 시에도 배포되어야 합니다.
+
+애플리케이션을 위해 Azure Container Instances를 구성해야 합니다.  
+어떤 구성 값을 사용해야 합니까? 답변하려면 답변 영역에서 적절한 옵션을 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/cebd86b5-9244-4f41-ab97-70ccbfe2ceb7)
+
+<details>
+<summary>정답</summary>
+
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/09c2fe91-b30a-48bd-9bdd-4ce2fddb5fbf)
+
+</details>
+
+**Key Terms:**
+- Docker containers
+- Azure Container Instances
+- YAML configuration
+
+</details>
+
+## Topic 2
+<details>
+<summary>접기/펼치기</summary>
+
+### Question 1
+
+#### English Version
+You are implementing a software as a service (SaaS) ASP.NET Core web service that will run as an Azure Web App. The web service will use an on-premises SQL Server database for storage. The web service also includes a WebJob that processes data updates. Four customers will use the web service.
+- Each instance of the WebJob processes data for a single customer and must run as a singleton instance.
+- Each deployment must be tested by using deployment slots prior to serving production data.
+- Azure costs must be minimized.
+- Azure resources must be located in an isolated network.
+
+You need to configure the App Service plan for the Web App.  
+How should you configure the App Service plan? To answer, select the appropriate settings in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/8d7ea73d-1889-439d-a253-8b628f6da114)
+
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/954e54f9-fe44-48f4-bd61-a39a899ad8bb)
+
+Number of VM instances: 4 -
+You are not charged extra for deployment slots.
+
+Pricing tier: Isolated -
+The App Service Environment (ASE) is a powerful feature offering of the Azure App Service that gives network isolation and improved scale capabilities. It is essentially a deployment of the Azure App Service into a subnet of a customer's Azure Virtual Network (VNet).
+Reference:
+https://azure.microsoft.com/sv-se/blog/announcing-app-service-isolated-more-power-scale-and-ease-of-use/
+
+</details>
+
+#### Korean Version
+Azure Web App으로 실행되는 소프트웨어 서비스(SaaS) ASP.NET Core 웹 서비스를
+
+ 구현하고 있습니다. 이 웹 서비스는 저장소로 온프레미스 SQL Server 데이터베이스를 사용합니다. 웹 서비스에는 데이터 업데이트를 처리하는 WebJob도 포함되어 있습니다. 네 명의 고객이 웹 서비스를 사용할 것입니다.
+- WebJob의 각 인스턴스는 단일 고객의 데이터를 처리하며 싱글톤 인스턴스로 실행되어야 합니다.
+- 각 배포는 프로덕션 데이터를 제공하기 전에 배포 슬롯을 사용하여 테스트해야 합니다.
+- Azure 비용을 최소화해야 합니다.
+- Azure 리소스는 격리된 네트워크에 있어야 합니다.
+
+웹 앱을 위한 App Service 계획을 구성해야 합니다.  
+어떻게 App Service 계획을 구성해야 합니까? 답변하려면 답변 영역에서 적절한 설정을 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/8d7ea73d-1889-439d-a253-8b628f6da114)
+
+<details>
+<summary>정답</summary>
+
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/954e54f9-fe44-48f4-bd61-a39a899ad8bb)
+
+</details>
+
+**Key Terms:**
+- SaaS
+- Azure Web App
+- App Service plan
+- Deployment slots
+
+---
+
+### Question 2
+
+#### English Version
+You are a developer for a software as a service (SaaS) company that uses an Azure Function to process orders. The Azure Function currently runs on an Azure Function app that is triggered by an Azure Storage queue.  
+You are preparing to migrate the Azure Function to Kubernetes using Kubernetes-based Event Driven Autoscaling (KEDA).  
+You need to configure Kubernetes Custom Resource Definitions (CRD) for the Azure Function.  
+Which CRDs should you configure? To answer, drag the appropriate CRD types to the correct locations. Each CRD type may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.  
+NOTE: Each correct selection is worth one point.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/999869da-1cef-4655-be8c-95de7894db71)
+
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/1b51b317-7e45-4ee1-ae5c-9ddbcf061323)
+
+Box 1: Deployment -
+To deploy Azure Functions to Kubernetes use the func kubernetes deploy command has several attributes that directly control how our app scales, once it is deployed to Kubernetes.
+
+Box 2: ScaledObject -
+With --polling-interval, we can control the interval used by KEDA to check Azure Service Bus Queue for messages.
+Example of ScaledObject with polling interval
+apiVersion: keda.k8s.io/v1alpha1
+kind: ScaledObject
+metadata:
+name: transformer-fn
+namespace: tt
+labels:
+deploymentName: transformer-fn
+spec:
+scaleTargetRef:
+deploymentName: transformer-fn
+pollingInterval: 5
+minReplicaCount: 0
+maxReplicaCount: 100
+
+Box 3: Secret -
+Store connection strings in Kubernetes Secrets.
+Example: to create the Secret in our demo Namespace:
+# create the k8s demo namespace
+kubectl create namespace tt
+# grab connection string from Azure Service Bus
+KEDA_SCALER_CONNECTION_STRING=$(az servicebus queue authorization-rule keys list \
+-g $RG_NAME \
+--namespace-name $SBN_NAME \
+--queue-name inbound \
+-n keda-scaler \
+--query "primaryConnectionString" \
+-o tsv)
+# create the kubernetes secret
+kubectl create secret generic tt-keda-auth \
+--from-literal KedaScaler=$KEDA_SCALER_CONNECTION_STRING \
+--namespace tt
+Reference:
+https://www.thinktecture.com/en/kubernetes/serverless-workloads-with-keda/
+
+</details>
+
+#### Korean Version
+Azure Storage 큐에 의해 트리거되는 Azure Function 앱에서 현재 실행되고 있는 주문을 처리하는 소프트웨어 서비스(SaaS) 회사의 개발자입니다.  
+Azure Function을 Kubernetes 기반 이벤트 구동 자동 확장(KEDA)을 사용하여 Kubernetes로 마이그레이션할 준비를 하고 있습니다.  
+Azure Function에 대한 Kubernetes 사용자 정의 리소스 정의(CRD)를 구성해야 합니다.  
+어떤 CRD를 구성해야 합니까? 답변하려면 올바른 CRD 유형을 올바른 위치로 드래그하십시오. 각 CRD 유형은 한 번, 여러 번 또는 전혀 사용되지 않을 수 있습니다. 콘텐츠를 보려면 분할 막대를 드래그하거나 스크롤해야 할 수 있습니다.  
+참고: 각 올바른 선택은 1점입니다.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/999869da-1cef-4655-be8c-95de7894db71)
+
+<details>
+<summary>정답</summary>
+
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/1b51b317-7e45-4ee1-ae5c-9ddbcf061323)
+
+</details>
+
+**Key Terms:**
+- Azure Function
+- Kubernetes
+- KEDA
+- Custom Resource Definitions (CRD)
+
+---
+
+### Question 3
+
+#### English Version
+You are creating a CLI script that creates an Azure web app and related services in Azure App Service. The web app uses the following variables:  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/5ab959ab-f4df-477a-99f2-480ea95952db)
+
+You need to automatically deploy code from GitHub to the newly created web app.  
+How should you complete the script? To answer, select the appropriate options in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/71e1d45a-d16d-45a0-a008-48c1b8af160c)
+
+<details>
+<summary>Answer</summary>
+
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/fef9a34a-ef50-43c1-bc36-0caef6d440bc)
+
+Box 1: az appservice plan create
+The azure group creates command successfully returns JSON result. Now we can use resource group to create a azure app service plan
+
+Box 2: az webapp create -
+Create a new web app..
+
+Box 3: --plan $webappname -
+..with the serviceplan we created in step 1.
+
+Box 4: az webapp deployment -
+Continuous Delivery with GitHub. Example:
+az webapp deployment source config --name firstsamplewebsite1 --resource-group websites--repo-url $gitrepo --branch master --git-token $token
+Box 5: --repo-url $gitrepo --branch master --manual-integration
+Reference:
+https://medium.com/@satish1v/devops-your-way-to-azure-web-apps-with-azure-cli-206ed4b3e9b1
 
 
+</details>
+
+#### Korean Version
+Azure App Service에서 Azure 웹 앱 및 관련 서비스를 만드는 CLI 스크립트를 작성하고 있습니다. 웹 앱은 다음 변수를 사용합니다:
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/5ab959ab-f4df-477a-99f2-480ea95952db)
+
+GitHub에서 새로 생성된 웹 앱으로 코드를 자동으로 배포해야 합니다.  
+스크립트를 어떻게 완성해야 합니까? 답변하려면 답변 영역에서 적절한 옵션을 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/71e1d45a-d16d-45a0-a008-48c1b8af160c)
+
+<details>
+<summary>정답</summary>
+
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/fef9a34a-ef50-43c1-bc36-0caef6d440bc)
+
+Box 1: az appservice plan create
+The azure group creates command successfully returns JSON result. Now we can use resource group to create a azure app service plan
+
+Box 2: az webapp create -
+Create a new web app..
+
+Box 3: --plan $webappname -
+..with the serviceplan we created in step 1.
+
+Box 4: az webapp deployment -
+Continuous Delivery with GitHub. Example:
+az webapp deployment source config --name firstsamplewebsite1 --resource-group websites--repo-url $gitrepo --branch master --git-token $token
+Box 5: --repo-url $gitrepo --branch master --manual-integration
+Reference:
+https://medium.com/@satish1v/devops-your-way-to-azure-web-apps-with-azure-cli-206ed4b3e9b1
+
+</details>
+
+**Key Terms:**
+- Azure web app
+- Azure App Service
+- GitHub integration
+- CLI script
 
 </details>
