@@ -1999,4 +1999,586 @@ https://medium.com/@satish1v/devops-your-way-to-azure-web-apps-with-azure-cli-20
 - GitHub integration
 - CLI script
 
+### Question 4
+
+#### English Version
+You develop a software as a service (SaaS) offering to manage photographs. Users upload photos to a web service which then stores the photos in Azure Storage Blob storage. The storage account type is General-purpose V2.  
+When photos are uploaded, they must be processed to produce and save a mobile-friendly version of the image. The process to produce a mobile-friendly version of the image must start in less than one minute.  
+You need to design the process that starts the photo processing.  
+Solution: Trigger the photo processing from Blob storage events.  
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: B**  
+You need to catch the triggered event, so move the photo processing to an Azure Function triggered from the blob upload.  
+Note: Azure Storage events allow applications to react to events. Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  
+Events are pushed using Azure Event Grid to subscribers such as Azure Functions, Azure Logic Apps, or even to your own HTTP listener.  
+However, the processing must start in less than one minute.  
+Note: Only storage accounts of kind StorageV2 (general purpose v2) and BlobStorage support event integration. Storage (general purpose v1) does not support integration with Event Grid.  
+Reference: [Azure Storage Event Overview](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview)
+</details>
+
+#### Korean Version
+사진을 관리하기 위한 소프트웨어 서비스(SaaS) 제공을 개발합니다. 사용자는 사진을 웹 서비스에 업로드하고, 웹 서비스는 사진을 Azure Storage Blob 스토리지에 저장합니다. 스토리지 계정 유형은 General-purpose V2입니다.  
+사진이 업로드되면 모바일 친화적인 버전의 이미지를 생성하고 저장해야 합니다. 모바일 친화적인 버전의 이미지를 생성하는 프로세스는 1분 이내에 시작해야 합니다.  
+사진 처리를 시작하는 프로세스를 설계해야 합니다.  
+해결책: Blob 스토리지 이벤트에서 사진 처리를 트리거합니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+<details>
+<summary>정답</summary>
+  
+**정답: B**  
+트리거된 이벤트를 잡아야 하므로, Blob 업로드에서 트리거된 Azure Function으로 사진 처리를 이동해야 합니다.  
+참고: Azure Storage 이벤트를 사용하면 애플리케이션이 이벤트에 반응할 수 있습니다. 일반적인 Blob 스토리지 이벤트 시나리오에는 이미지 또는 비디오 처리, 검색 인덱싱 또는 파일 지향 워크플로가 포함됩니다.  
+이벤트는 Azure Event Grid를 사용하여 Azure Functions, Azure Logic Apps 또는 사용자 자신의 HTTP 리스너와 같은 구독자에게 푸시됩니다.  
+그러나 처리는 1분 이내에 시작되어야 합니다.  
+참고: StorageV2(일반 목적 v2) 및 BlobStorage 유형의 스토리지 계정만 이벤트 통합을 지원합니다. Storage(일반 목적 v1)는 Event Grid와의 통합을 지원하지 않습니다.  
+참조: [Azure Storage 이벤트 개요](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview)
+</details>
+
+**Key Terms:**
+- SaaS
+- Azure Storage Blob
+- Azure Event Grid
+- Azure Functions
+
+---
+
+### Question 5
+
+#### English Version
+You develop and deploy an Azure App Service API app to a Windows-hosted deployment slot named Development. You create additional deployment slots named Testing and Production. You enable auto swap on the Production deployment slot.  
+You need to ensure that scripts run and resources are available before a swap operation occurs.  
+Solution: Update the web.config file to include the applicationInitialization configuration element. Specify custom initialization actions to run the scripts.  
+Does the solution meet the goal?
+- A. No
+- B. Yes
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: A**  
+Specify custom warm-up.  
+Some apps might require custom warm-up actions before the swap. The applicationInitialization configuration element in web.config lets you specify custom initialization actions. The swap operation waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.  
+```xml
+<system.webServer>
+  <applicationInitialization>
+    <add initializationPage="/" hostName="[app hostname]" />
+    <add initializationPage="/Home/About" hostName="[app hostname]" />
+  </applicationInitialization>
+</system.webServer>
+```
+Reference: [Azure App Service Deployment Slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots#troubleshoot-swaps)
+</details>
+
+#### Korean Version
+Windows에서 호스팅되는 개발 슬롯이라는 배포 슬롯에 Azure App Service API 앱을 개발하고 배포합니다. Testing 및 Production이라는 추가 배포 슬롯을 만듭니다. Production 배포 슬롯에서 자동 전환을 활성화합니다.  
+전환 작업이 발생하기 전에 스크립트가 실행되고 리소스가 사용 가능해야 합니다.  
+해결책: 웹.config 파일을 업데이트하여 applicationInitialization 구성 요소를 포함합니다. 스크립트를 실행하기 위한 사용자 지정 초기화 작업을 지정합니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 아니요
+- B. 예
+
+<details>
+<summary>정답</summary>
+  
+**정답: A**  
+사용자 지정 워밍업을 지정하십시오.  
+일부 앱은 전환 전에 사용자 지정 워밍업 작업이 필요할 수 있습니다. 웹.config의 applicationInitialization 구성 요소를 사용하면 사용자 지정 초기화 작업을 지정할 수 있습니다. 전환 작업은 이 사용자 지정 워밍업이 완료될 때까지 기다린 후 대상 슬롯과 전환됩니다. 다음은 샘플 웹.config 조각입니다.  
+```xml
+<system.webServer>
+  <applicationInitialization>
+    <add initializationPage="/" hostName="[app hostname]" />
+    <add initializationPage="/Home/About" hostName="[app hostname]" />
+  </applicationInitialization>
+</system.webServer>
+```
+참조: [Azure App Service 배포 슬롯](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots#troubleshoot-swaps)
+</details>
+
+**Key Terms:**
+- Azure App Service
+- Deployment slots
+- Auto swap
+- Custom warm-up
+
+---
+
+### Question 6
+
+#### English Version
+You develop and deploy an Azure App Service API app to a Windows-hosted deployment slot named Development. You create additional deployment slots named Testing and Production. You enable auto swap on the Production deployment slot.  
+You need to ensure that scripts run and resources are available before a swap operation occurs.  
+Solution: Enable auto swap for the Testing slot. Deploy the app to the Testing slot.  
+Does the solution meet the goal?
+- A. No
+- B. Yes
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: B**  
+Instead, update the web.config file to include the applicationInitialization configuration element. Specify custom initialization actions to run the scripts.  
+Note: Some apps might require custom warm-up actions before the swap. The applicationInitialization configuration element in web.config lets you specify custom initialization actions. The swap operation waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.  
+```xml
+<system.webServer>
+  <applicationInitialization>
+    <add initializationPage="/" hostName="[app hostname]" />
+    <add initializationPage="/Home/About" hostName="[app hostname]" />
+  </applicationInitialization>
+</system.webServer>
+```
+Reference: [Azure App Service Deployment Slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots#troubleshoot-swaps)
+</details>
+
+#### Korean Version
+Windows에서 호스팅되는 개발 슬롯이라는 배포 슬롯에 Azure App Service API 앱을 개발하고 배포합니다. Testing 및 Production이라는 추가 배포 슬롯을 만듭니다. Production 배포 슬롯에서 자동 전환을 활성화합니다.  
+전환 작업이 발생하기 전에 스크립트가 실행되고 리소스가 사용 가능해야 합니다.  
+해결책: Testing 슬롯에 대한 자동 전환을 활성화합니다. 앱을 Testing 슬롯에 배포합니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 아니요
+- B. 예
+
+<details>
+<summary>정답</summary>
+  
+**정답: B**  
+대신, 웹.config 파일을 업데이트하여 applicationInitialization 구성 요소를 포함합니다. 스크립트를 실행하기 위한 사용자 지정 초기화 작업을 지정합니다.  
+참고: 일부 앱은 전환 전에 사용자 지정 워밍업 작업이 필요할 수 있습니다. 웹.config의 applicationInitialization 구성 요소를 사용하면 사용자 지정 초기화 작업을 지정할 수 있습니다. 전환 작업은 이 사용자 지정 워밍업이 완료될 때까지 기다린 후 대상 슬롯과 전환됩니다. 다음은 샘플 웹.config 조각입니다.  
+```xml
+<system.webServer>
+  <applicationInitialization>
+    <add initializationPage="/" hostName="[app hostname]" />
+    <add initializationPage="/Home/About" hostName="[app hostname]" />
+  </applicationInitialization>
+</system.webServer>
+```
+참조: [Azure App Service 배포 슬롯](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots#troubleshoot-swaps)
+
+
+</details>
+
+**Key Terms:**
+- Azure App Service
+- Deployment slots
+- Auto swap
+- Custom warm-up
+
+---
+
+### Question 7
+
+#### English Version
+You develop and deploy an Azure App Service API app to a Windows-hosted deployment slot named Development. You create additional deployment slots named Testing and Production. You enable auto swap on the Production deployment slot.  
+You need to ensure that scripts run and resources are available before a swap operation occurs.  
+Solution: Disable auto swap. Update the app with a method named `statuscheck` to run the scripts. Re-enable auto swap and deploy the app to the Production slot.  
+Does the solution meet the goal?
+- A. No
+- B. Yes
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: B**  
+Instead, update the web.config file to include the applicationInitialization configuration element. Specify custom initialization actions to run the scripts.  
+Note: Some apps might require custom warm-up actions before the swap. The applicationInitialization configuration element in web.config lets you specify custom initialization actions. The swap operation waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.  
+```xml
+<system.webServer>
+  <applicationInitialization>
+    <add initializationPage="/" hostName="[app hostname]" />
+    <add initializationPage="/Home/About" hostName="[app hostname]" />
+  </applicationInitialization>
+</system.webServer>
+```
+Reference: [Azure App Service Deployment Slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots#troubleshoot-swaps)
+</details>
+
+#### Korean Version
+Windows에서 호스팅되는 개발 슬롯이라는 배포 슬롯에 Azure App Service API 앱을 개발하고 배포합니다. Testing 및 Production이라는 추가 배포 슬롯을 만듭니다. Production 배포 슬롯에서 자동 전환을 활성화합니다.  
+전환 작업이 발생하기 전에 스크립트가 실행되고 리소스가 사용 가능해야 합니다.  
+해결책: 자동 전환을 비활성화합니다. 스크립트를 실행하기 위해 `statuscheck`라는 메서드를 사용하여 앱을 업데이트합니다. 자동 전환을 다시 활성화하고 앱을 Production 슬롯에 배포합니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 아니요
+- B. 예
+
+<details>
+<summary>정답</summary>
+  
+**정답: B**  
+대신, 웹.config 파일을 업데이트하여 applicationInitialization 구성 요소를 포함합니다. 스크립트를 실행하기 위한 사용자 지정 초기화 작업을 지정합니다.  
+참고: 일부 앱은 전환 전에 사용자 지정 워밍업 작업이 필요할 수 있습니다. 웹.config의 applicationInitialization 구성 요소를 사용하면 사용자 지정 초기화 작업을 지정할 수 있습니다. 전환 작업은 이 사용자 지정 워밍업이 완료될 때까지 기다린 후 대상 슬롯과 전환됩니다. 다음은 샘플 웹.config 조각입니다.  
+```xml
+<system.webServer>
+  <applicationInitialization>
+    <add initializationPage="/" hostName="[app hostname]" />
+    <add initializationPage="/Home/About" hostName="[app hostname]" />
+  </applicationInitialization>
+</system.webServer>
+```
+참조: [Azure App Service 배포 슬롯](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots#troubleshoot-swaps)
+</details>
+
+**Key Terms:**
+- Azure App Service
+- Deployment slots
+- Auto swap
+- Custom warm-up
+
+---
+
+### Question 8
+
+#### English Version
+You develop a software as a service (SaaS) offering to manage photographs. Users upload photos to a web service which then stores the photos in Azure Storage Blob storage. The storage account type is General-purpose V2.  
+When photos are uploaded, they must be processed to produce and save a mobile-friendly version of the image. The process to produce a mobile-friendly version of the image must start in less than one minute.  
+You need to design the process that starts the photo processing.  
+Solution: Convert the Azure Storage account to a BlockBlobStorage storage account.  
+Does the solution meet the goal?
+- A. Yes
+- B. No
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: B**  
+Not necessary to convert the account, instead move photo processing to an Azure Function triggered from the blob upload.  
+Azure Storage events allow applications to react to events. Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  
+Note: Only storage accounts of kind StorageV2 (general purpose v2) and BlobStorage support event integration. Storage (general purpose v1) does not support integration with Event Grid.  
+Reference: [Azure Storage Event Overview](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview)
+</details>
+
+#### Korean Version
+사진을 관리하기 위한 소프트웨어 서비스(SaaS) 제공을 개발합니다. 사용자는 사진을 웹 서비스에 업로드하고, 웹 서비스는 사진을 Azure Storage Blob 스토리지에 저장합니다. 스토리지 계정 유형은 General-purpose V2입니다.  
+사진이 업로드되면 모바일 친화적인 버전의 이미지를 생성하고 저장해야 합니다. 모바일 친화적인 버전의 이미지를 생성하는 프로세스는 1분 이내에 시작해야 합니다.  
+사진 처리를 시작하는 프로세스를 설계해야 합니다.  
+해결책: Azure Storage 계정을 BlockBlobStorage 스토리지 계정으로 변환합니다.  
+이 솔루션이 목표를 충족합니까?
+- A. 예
+- B. 아니요
+
+<details>
+<summary>정답</summary>
+  
+**정답: B**  
+계정을 변환할 필요가 없으며, 대신 Blob 업로드에서 트리거된 Azure Function으로 사진 처리를 이동합니다.  
+Azure Storage 이벤트를 사용하면 애플리케이션이 이벤트에 반응할 수 있습니다. 일반적인 Blob 스토리지 이벤트 시나리오에는 이미지 또는 비디오 처리, 검색 인덱싱 또는 파일 지향 워크플로가 포함됩니다.  
+참고: StorageV2(일반 목적 v2) 및 BlobStorage 유형의 스토리지 계정만 이벤트 통합을 지원합니다. Storage(일반 목적 v1)는 Event Grid와의 통합을 지원하지 않습니다.  
+참조: [Azure Storage 이벤트 개요](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview)
+</details>
+
+**Key Terms:**
+- SaaS
+- Azure Storage Blob
+- BlockBlobStorage
+- Azure Functions
+
+---
+
+### Question 9
+
+#### English Version
+You are developing an Azure Web App. You configure TLS mutual authentication for the web app.  
+You need to validate the client certificate in the web app. To answer, select the appropriate options in the answer area.  
+NOTE: Each correct selection is worth one point.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/655e6bde-3acf-4fba-97fb-b7eea9b5aad3)
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/3c0a02e7-7181-428c-b437-01ca476c2b48)
+
+Accessing the client certificate from App Service.  
+If you are using ASP.NET and configure your app to use client certificate authentication, the certificate will be available through the HttpRequest.ClientCertificate property. For other application stacks, the client cert will be available in your app through a base64 encoded value in the "X-ARR-ClientCert" request header. Your application can create a certificate from this value and then use it for authentication and authorization purposes in your application.  
+Reference: [Azure TLS Mutual Authentication](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-configure-tls-mutual-auth)
+</details>
+
+#### Korean Version
+Azure Web 앱을 개발 중입니다. 웹 앱에 대해 TLS 상호 인증을 구성합니다.  
+웹 앱에서 클라이언트 인증서를 검증해야 합니다. 답변하려면 답변 영역에서 적절한 옵션을 선택하십시오.  
+참고: 각 올바른 선택은 1점입니다.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/655e6bde-3acf-4fba-97fb-b7eea9b5aad3)
+
+<details>
+<summary>정답</summary>
+  
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/3c0a02e7-7181-428c-b437-01ca476c2b48)
+
+App Service에서 클라이언트 인증서에 액세스합니다.  
+ASP.NET을 사용하고 앱을 클라이언트 인증서 인증을 사용하도록 구성한 경우 인증서는 HttpRequest.ClientCertificate 속성을 통해 사용할 수 있습니다. 다른 애플리케이션 스택의 경우 클라이언트 인증서는 "X-ARR-ClientCert" 요청 헤더의 base64 인코딩된 값으로 앱에서 사용할 수 있습니다. 이 값을 사용하여 인증서를 생성한 다음 애플리케이션에서 인증 및 권한 부여 목적으로 사용할 수 있습니다.  
+참조: [Azure TLS 상호 인증](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-configure-tls-mutual-auth)
+</details>
+
+**Key Terms:**
+- Azure Web App
+- TLS mutual authentication
+- Client certificate validation
+
+---
+
+### Question 10
+
+#### English Version
+You are developing a Docker/Go using Azure App Service Web App for Containers. You plan to run the container in an App Service on Linux. You identify a Docker container image to use.  
+None of your current resource groups reside in a location that supports Linux. You must minimize the number of resource groups required.  
+You need to create the application and perform an initial deployment.  
+Which three Azure CLI commands should you use to develop the solution? To answer, move the appropriate commands from the list of commands to the answer area and arrange them
+
+ in the correct order.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/46ca755b-b28a-470d-a423-0c3fbeb258c9)
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/c464cbcf-8c8e-4465-9f3b-8afc7802a68d)
+
+You can host native Linux applications in the cloud by using Azure Web Apps. To create a Web App for Containers, you must run Azure CLI commands that create a group, then a service plan, and finally the web app itself.  
+Step 1: `az group create`  
+In the Cloud Shell, create a resource group with the az group create command.  
+Step 2: `az appservice plan create`  
+In the Cloud Shell, create an App Service plan in the resource group with the az appservice plan create command.  
+Step 3: `az webapp create`  
+In the Cloud Shell, create a web app in the myAppServicePlan App Service plan with the az webapp create command. Don't forget to replace with a unique app name, and <docker-ID> with your Docker ID.  
+Reference: [Azure Web Apps for Containers](https://docs.microsoft.com/mt-mt/azure/app-service/containers/quickstart-docker-go?view=sql-server-ver15)
+</details>
+
+#### Korean Version
+Docker/Go를 사용하여 Azure App Service Web App for Containers를 개발 중입니다. 컨테이너를 Linux의 App Service에서 실행할 계획입니다. 사용할 Docker 컨테이너 이미지를 식별합니다.  
+현재 리소스 그룹 중 Linux를 지원하는 위치에 있는 리소스 그룹이 없습니다. 필요한 리소스 그룹의 수를 최소화해야 합니다.  
+애플리케이션을 만들고 초기 배포를 수행해야 합니다.  
+솔루션을 개발하기 위해 어떤 세 가지 Azure CLI 명령을 사용해야 합니까? 답변하려면 명령 목록에서 적절한 명령을 답변 영역으로 이동하여 올바른 순서로 배열하십시오.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/46ca755b-b28a-470d-a423-0c3fbeb258c9)
+
+<details>
+<summary>정답</summary>
+  
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/c464cbcf-8c8e-4465-9f3b-8afc7802a68d)
+
+Azure Web Apps를 사용하여 클라우드에서 네이티브 Linux 애플리케이션을 호스팅할 수 있습니다. 컨테이너용 웹 앱을 만들려면 리소스 그룹을 만들고, 서비스 계획을 만들고, 마지막으로 웹 앱을 만드는 Azure CLI 명령을 실행해야 합니다.  
+1단계: `az group create`  
+Cloud Shell에서 az group create 명령을 사용하여 리소스 그룹을 만듭니다.  
+2단계: `az appservice plan create`  
+Cloud Shell에서 az appservice plan create 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다.  
+3단계: `az webapp create`  
+Cloud Shell에서 az webapp create 명령을 사용하여 myAppServicePlan App Service 계획에 웹 앱을 만듭니다. 고유한 앱 이름으로 교체하고 <docker-ID>를 Docker ID로 교체하는 것을 잊지 마십시오.  
+참조: [Azure Web Apps for Containers](https://docs.microsoft.com/mt-mt/azure/app-service/containers/quickstart-docker-go?view=sql-server-ver15)
+</details>
+
+**Key Terms:**
+- Azure App Service
+- Docker
+- CLI commands
+- Resource group
+
+---
+
+### Question 11
+
+#### English Version
+Fourth Coffee has an ASP.NET Core web app that runs in Docker. The app is mapped to the www.fourthcoffee.com domain.  
+Fourth Coffee is migrating this application to Azure.  
+You need to provision an App Service Web App to host this docker image and map the custom domain to the App Service web app.  
+A resource group named FourthCoffeePublicWebResourceGroup has been created in the WestUS region that contains an App Service Plan named AppServiceLinuxDockerPlan.  
+Which order should the CLI commands be used to develop the solution? To answer, move all of the Azure CLI commands from the list of commands to the answer area and arrange them in the correct order.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/1d60d539-c559-4770-bfb1-b03bf5ec015e)
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/75b164fd-e98c-4680-bdb3-521f423f110c)
+
+Step 1: `#bin/bash`  
+The appName is used when the webapp-name is created in step 2.  
+Step 2: `az webapp create`  
+Create a web app. In the Cloud Shell, create a web app in the myAppServicePlan App Service plan with the az webapp create command.  
+Step 3: `az webapp config container set`  
+In Create a web app, you specified an image on Docker Hub in the az webapp create command. This is good enough for a public image. To use a private image, you need to configure your Docker account ID and password in your Azure web app.  
+Step 4: `az webapp config hostname add`  
+The webapp-name is used when the webapp is created in step 2.  
+In the Cloud Shell, follow the az webapp create command with az webapp config container set.  
+Reference: [Azure App Service Web App for Containers](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image) [Azure App Service Custom Domain](https://docs.microsoft.com/en-us/azure/app-service/scripts/cli-configure-custom-domain)
+</details>
+
+#### Korean Version
+Fourth Coffee에는 Docker에서 실행되는 ASP.NET Core 웹 앱이 있습니다. 앱은 www.fourthcoffee.com 도메인에 매핑됩니다.  
+Fourth Coffee는 이 애플리케이션을 Azure로 마이그레이션하고 있습니다.  
+이 Docker 이미지를 호스팅하기 위해 App Service Web App을 프로비저닝하고 사용자 지정 도메인을 App Service 웹 앱에 매핑해야 합니다.  
+WestUS 지역에 FourthCoffeePublicWebResourceGroup이라는 리소스 그룹이 생성되어 있으며 AppServiceLinuxDockerPlan이라는 App Service 계획이 포함되어 있습니다.  
+솔루션을 개발하기 위해 CLI 명령을 어떤 순서로 사용해야 합니까? 답변하려면 명령 목록의 모든 Azure CLI 명령을 답변 영역으로 이동하여 올바른 순서로 배열하십시오.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/1d60d539-c559-4770-bfb1-b03bf5ec015e)
+
+<details>
+<summary>정답</summary>
+  
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/75b164fd-e98c-4680-bdb3-521f423f110c)
+
+1단계: `#bin/bash`  
+웹앱 이름이 2단계에서 생성될 때 사용됩니다.  
+2단계: `az webapp create`  
+웹 앱을 만듭니다. Cloud Shell에서 az webapp create 명령을 사용하여 myAppServicePlan App Service 계획에 웹 앱을 만듭니다.  
+3단계: `az webapp config container set`  
+웹 앱을 만들 때 az webapp create 명령에서 Docker Hub의 이미지를 지정했습니다. 공개 이미지에 대해서는 이것으로 충분합니다. 비공개 이미지를 사용하려면 Azure 웹 앱에서 Docker 계정 ID와 비밀번호를 구성해야 합니다.  
+4단계: `az webapp config hostname add`  
+웹앱 이름이 2단계에서 생성될 때 사용됩니다.  
+Cloud Shell에서 az webapp create 명령 뒤에 az webapp config container set 명령을 따르십시오.  
+참조: [Azure App Service Web App for Containers](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image) [Azure App Service Custom Domain](https://docs.microsoft.com/en-us/azure/app-service/scripts/cli-configure-custom-domain)
+</details>
+
+**Key Terms:**
+- Azure App Service
+- Docker
+- CLI commands
+- Custom domain
+
+---
+
+### Question 12
+
+#### English Version
+You are developing a serverless Java application on Azure. You create a new Azure Key Vault to work with secrets from a new Azure Functions application.  
+The application must meet the following requirements:
+- Reference the Azure Key Vault without requiring any changes to the Java code.
+- Dynamically add and remove instances of the Azure Functions host based on the number of incoming application events.
+- Ensure that instances are perpetually warm to avoid any cold starts.
+- Connect to a VNet.
+- Authentication to the Azure Key Vault instance must be removed if the Azure Function application is deleted.
+
+You need to grant the Azure Functions application access to the Azure Key Vault.  
+Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/9b8c0d9d-92f5-4b0e-af48-28eeadb9bb7e)
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/2b4c5366-eaa8-4246-a279-1196046ecd93)
+
+Step 1: Create the Azure Functions app with a Consumption plan type.
+Use the Consumption plan for serverless.
+Step 2: Create a system-assigned managed identity for the application.
+Create a system-assigned managed identity for your application. Key Vault references currently only support system-assigned managed identities. User-assigned identities cannot be used.
+Step 3: Create an access policy in Key Vault for the application identity.
+Create an access policy in Key Vault for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or applicationId settings, as this is not compatible with a managed identity.
+Reference: Azure App Service Key Vault References
+
+</details>
+
+#### Korean Version
+Azure에서 서버리스 Java 애플리케이션을 개발 중입니다. 새로운 Azure Functions 애플리케이션에서 비밀을 처리하기 위해 새로운 Azure Key Vault를 만듭니다.  
+애플리케이션은 다음 요구 사항을 충족해야 합니다:
+- Java 코드를 변경하지 않고 Azure Key Vault를 참조합니다.
+- 들어오는 애플리케이션 이벤트 수에 따라 Azure Functions 호스트 인스턴스를 동적으로 추가 및 제거합니다.
+- 콜드 스타트를 방지하기 위해 인스턴스가 영구적으로 따뜻하게 유지됩니다.
+- VNet에 연결합니다.
+- Azure Functions 애플리케이션이 삭제된 경우 Azure Key Vault 인스턴스에 대한 인증이 제거됩니다.
+
+Azure Functions 애플리케이션에 Azure Key Vault에 대한 액세스를 부여해야 합니다.  
+어떤 세 가지 작업을 순서대로 수행해야 합니까? 답변하려면 작업 목록에서 적절한 작업을 답변 영역으로 이동하여 올바른 순서로 배열하십시오.
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/9b8c0d9d-92f5-4b0e-af48-28eeadb9bb7e)
+
+<details>
+<summary>정답</summary>
+  
+**정답:**  
+
+![image](https://github.com/pureliture/pureliture/assets/61732056/2b4c5366-eaa8-4246-a279-1196046ecd93)
+
+1단계: Consumption 계획 유형으로 Azure Functions 앱을 만듭니다.  
+서버리스를 위해 Consumption 계획을 사용하십시오.  
+2단계: 애플리케이션에 대한 시스템 할당 관리 ID를 만듭니다.  
+애플리케이션에 대한 시스템 할당 관리 ID를 만드십시오. Key Vault 참조는 현재 시스템 할당 관리 ID만 지원합니다. 사용자 할당 ID는 사용할 수 없습니다.  
+3단계: 애플리케이션 ID에 대한 Key Vault에서 액세스 정책을 만듭니다.  
+이전에 만든 애플리케이션 ID에 대한 Key Vault에서 액세스 정책을 만듭니다. 이 정책에서 "Get" 비밀 권한을 활성화하십시오. 이 설정은 관리 ID와 호환되지 않으므로 "승인된 애플리케이션" 또는 applicationId 설정을 구성하지 마십시오.  
+참조: [Azure App Service Key Vault 참조](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references)
+</details>
+
+**Key Terms:**
+- Azure Functions
+- Azure Key Vault
+- Managed identity
+- VNet
+
+---
+
+### Question 13
+
+#### English Version
+You develop a website. You plan to host the website in Azure. You expect the website to experience high traffic volumes after it is published.  
+You must ensure that the website remains available and responsive while minimizing cost.  
+You need to deploy the website.  
+What should you do?
+- A. Deploy the website to a virtual machine. Configure the virtual machine to automatically scale when the CPU load is high.
+- B. Deploy the website to an App Service that uses the Shared service tier. Configure the App Service plan to automatically scale when the CPU load is high.
+- C. Deploy the website to a virtual machine. Configure a Scale Set to increase the virtual machine instance count when the CPU load is high.
+- D. Deploy the website to an App Service that uses the Standard service tier. Configure the App Service plan to automatically scale when the CPU load is high.
+
+<details>
+<summary>Answer</summary>
+  
+**Correct Answer: D**  
+Windows Azure Web Sites (WAWS) offers 3 modes: Standard, Free, and Shared.  
+Standard mode carries an enterprise-grade SLA (Service Level Agreement) of 99.9% monthly, even for sites with just one instance.  
+Standard mode runs on dedicated instances, making it different from the other ways to buy Windows Azure Web Sites.  
+Incorrect Answers:  
+B: Shared and Free modes do not offer the scaling flexibility of Standard, and they have some important limits.  
+Shared mode, just as the name states, also uses shared Compute resources, and also has a CPU limit. So, while neither Free nor Shared is likely to be the best choice for your production environment due to these limits.
+</details>
+
+#### Korean Version
+웹사이트를 개발합니다. 웹사이트를 Azure에서 호스팅할 계획입니다. 웹사이트가 게시된 후 높은 트래픽 볼륨을 경험할 것으로 예상됩니다.  
+웹사이트가 사용 가능하고 응답성을 유지하면서 비용을 최소화해야 합니다.  
+웹사이트를 배포해야 합니다.  
+어떻게 해야 합니까?
+- A. 웹사이트를 가상 머신에 배포합니다. CPU 부하가 높을 때 가상 머신이 자동으로 확장되도록 구성합니다.
+- B. 웹사이트를 공유 서비스 계층을 사용하는 App Service에 배포합니다. CPU 부하가 높을 때 App Service 계획이 자동으로 확장되도록 구성합니다.
+- C. 웹사이트를 가상 머신에 배포합니다. CPU 부하가 높을 때 가상 머신 인스턴스 수를 늘리도록 Scale Set을 구성합니다.
+- D. 웹사이트를 표준 서비스 계층을 사용하는 App Service에 배포합니다. CPU 부하가 높을 때 App Service 계획이 자동으로 확장되도록 구성합니다.
+
+<details>
+<summary>정답</summary>
+  
+**정답: D**  
+Windows Azure Web Sites (WAWS)는 세 가지 모드를 제공합니다: 표준(Standard), 무료(Free), 공유(Shared).  
+표준 모드는 월간 99.9%의 엔터프라이즈 등급 SLA(서비스 수준 계약)를 제공합니다, 심지어 하나의 인스턴스만 있는 사이트라도.  
+표준 모드는 전용 인스턴스에서 실행되므로 다른 Windows Azure 웹 사이트 구매 방식과 다릅니다.  
+오답:  
+B: 공유 및 무료 모드는 표준 모드의 확장 유연성을 제공하지 않으며, 몇 가지 중요한 제한이 있습니다.  
+공유 모드는 이름 그대로 공유된 컴퓨팅 리소스를 사용하며 CPU 한도도 있습니다. 따라서 이러한 제한으로 인해 생산 환경에서는 무료 또는 공유 모드를 선택하는 것이 최선이 아닙니다.
+</details>
+
+**Key Terms:**
+- Azure Web Sites
+- App Service
+- Scaling
+- Service tiers
+
+
+
 </details>
